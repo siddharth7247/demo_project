@@ -20,9 +20,6 @@ class MainActivity : AppCompatActivity() {
         btnIntent = findViewById<Button>(R.id.intentDemo)
         btnConstaint = findViewById<Button>(R.id.ConstraintLayoutDemo)
 
-        var myToast = Toast.makeText(applicationContext,"Activity created",Toast.LENGTH_LONG)
-        myToast.show()
-
         btnIntent.setOnClickListener(){
             intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)

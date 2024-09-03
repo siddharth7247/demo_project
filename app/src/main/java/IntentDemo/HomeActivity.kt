@@ -14,10 +14,10 @@ class HomeActivity : AppCompatActivity() {
         Log.d("onCreate","OnCreate Called?")
 
         var txtuname = findViewById<TextView>(R.id.txtuname)
-        var txtpass = findViewById<TextView>(R.id.txtpass)
+        val txtpass = findViewById<TextView>(R.id.txtpass)
 
         var bundle : Bundle? = intent.extras
-        var username = bundle?.get("username")
+        val username = bundle?.get("username")
         var password = bundle?.get("password")
 
         txtuname.text = username.toString()
