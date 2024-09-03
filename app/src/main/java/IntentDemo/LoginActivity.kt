@@ -1,4 +1,4 @@
-package com.example.demo
+package IntentDemo
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import com.example.demo.R.id.userName
+import com.example.demo.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
         btnSubmit.setOnClickListener(){
             print("")
-            intent = Intent(applicationContext,HomeActivity::class.java)
+            intent = Intent(applicationContext, HomeActivity::class.java)
             intent.putExtra("username",username.text)
             intent.putExtra("password",password.text)
             startActivity(intent)
