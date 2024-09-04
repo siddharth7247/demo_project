@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2EFE9"
-    tools:context=".SignUp">
+    tools:context="ViewsDemo.SignUp">
 
     <ScrollView
 
@@ -194,23 +194,23 @@
                 >
 
                 <Button
+                    android:id="@+id/btnSubmit"
                     android:text="Submit"
                     android:textColor="@color/black"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="65dp"
                     android:textSize="24sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <Button
-                    android:text="Reseat"
+                    android:id="@+id/btnReset"
+                    android:text="Reset"
                     android:textColor="@color/black"
-                    android:layout_marginStart="75dp"
+                    android:layout_marginStart="30dp"
                     android:textSize="24dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
-
-
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

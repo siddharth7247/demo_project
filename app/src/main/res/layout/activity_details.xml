@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ViewsDemo.DetailsActivity">
+
+    <TextView
+        android:id="@+id/txtPersonalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="--Personal Info--"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:text="First Name :"
+        android:id="@+id/firstName"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="@id/txtPersonalInfo"
+        app:layout_constraintTop_toBottomOf="@id/txtPersonalInfo"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:text="details"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/firstName"
+        app:layout_constraintTop_toTopOf="@id/firstName"
+        app:layout_constraintEnd_toEndOf="@id/txtPersonalInfo"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Last Name :"
+        android:id="@+id/lastName"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/firstName"
+        app:layout_constraintTop_toBottomOf="@id/firstName"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:text="details"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/firstName"
+        app:layout_constraintTop_toTopOf="@id/firstName"
+        app:layout_constraintEnd_toEndOf="@id/txtPersonalInfo"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

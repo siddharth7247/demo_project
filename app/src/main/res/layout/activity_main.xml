@@ -26,10 +26,17 @@
         <Button
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:id="@+id/ConstraintLayoutDemo"
+            android:id="@+id/constraintLayoutDemo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Constraint Layout Demo" />
+        <Button
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/viewsDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Views Demo" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
