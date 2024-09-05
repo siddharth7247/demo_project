@@ -1,0 +1,4 @@
+package ViewPagerDemo
+
+class RacipeFragmentAdapter {
+}

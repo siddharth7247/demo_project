@@ -8,6 +8,8 @@
 
     <LinearLayout
         android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/img_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,6 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
+            android:backgroundTint="@color/purple_200"
             android:id="@+id/intentDemo"
             android:layout_marginTop="15dp"
             android:layout_marginStart="20dp"
@@ -24,6 +27,7 @@
             android:layout_height="wrap_content"
             android:text="Intent Demo" />
         <Button
+            android:backgroundTint="@color/purple_200"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:id="@+id/constraintLayoutDemo"
@@ -31,12 +35,22 @@
             android:layout_height="wrap_content"
             android:text="Constraint Layout Demo" />
         <Button
+            android:backgroundTint="@color/purple_200"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:id="@+id/viewsDemo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Views Demo" />
+
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/drawableDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Drawable Demo" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
