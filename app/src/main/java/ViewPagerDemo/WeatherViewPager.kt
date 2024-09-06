@@ -3,30 +3,35 @@ package ViewPagerDemo
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.example.demo.R
 import com.google.android.material.tabs.TabLayout
 
-class racipesViewPagerDemo : AppCompatActivity() {
+class WeatherViewPager : AppCompatActivity() {
     lateinit var tabLayout : TabLayout
     lateinit var viewPager : ViewPager2
-    lateinit var adapter: RacipeFragmentAdapter
+    lateinit var adapter: FragmentAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_racipes_view_pager_demo)
+        setContentView(R.layout.activity_weather_pager_demo)
 
         tabLayout = findViewById<TabLayout>(R.id.tabLayout)
         viewPager = findViewById<ViewPager2>(R.id.viewPager)
 
-        adapter = RacipeFragmentAdapter(supportFragmentManager,lifecycle)
+        adapter = FragmentAdapter(supportFragmentManager,lifecycle)
 
-        tabLayout.addTab(tabLayout.newTab().setText("BreakFast"))
-        tabLayout.addTab(tabLayout.newTab().setText("Lunch"))
-        tabLayout.addTab(tabLayout.newTab().setText("Dinner"))
+        tabLayout.addTab(tabLayout.newTab().setText("Sunday"))
+        tabLayout.addTab(tabLayout.newTab().setText("Monday"))
+        tabLayout.addTab(tabLayout.newTab().setText("Tuesday"))
+        tabLayout.addTab(tabLayout.newTab().setText("wednesday"))
+        tabLayout.addTab(tabLayout.newTab().setText("Monday"))
+        tabLayout.addTab(tabLayout.newTab().setText("Tuesday"))
+        tabLayout.addTab(tabLayout.newTab().setText("Sunday"))
+
         viewPager.adapter = adapter
+        viewPager.offscreenPageLimit = 2
+
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 if (tab != null) {

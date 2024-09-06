@@ -33,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/txtPersonalInfo"
         android:layout_height="wrap_content"/>
     <TextView
+        android:id="@+id/fname"
         android:text="details"
         android:textSize="24dp"
         android:textStyle="bold"
@@ -55,13 +56,57 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:text="details"
+        android:id="@+id/lname"
         android:textSize="24dp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/firstName"
-        app:layout_constraintTop_toTopOf="@id/firstName"
-        app:layout_constraintEnd_toEndOf="@id/txtPersonalInfo"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/lastName"
+        app:layout_constraintTop_toTopOf="@id/lastName"
+        app:layout_constraintEnd_toEndOf="@id/txtPersonalInfo"/>
+    <TextView
+        android:text=" Email:"
+        android:id="@+id/email"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/lastName"
+        app:layout_constraintTop_toBottomOf="@id/lastName"
         android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/eml"
+        android:text="details"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/lastName"
+        app:layout_constraintTop_toTopOf="@id/email"
+        app:layout_constraintEnd_toEndOf="@id/txtPersonalInfo"/>
+
+    <TextView
+        android:text=" Password:"
+        android:id="@+id/password"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/email"
+        app:layout_constraintTop_toBottomOf="@id/eml"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/pass"
+        android:text="details"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/lastName"
+        app:layout_constraintTop_toTopOf="@id/email"
+        app:layout_constraintEnd_toEndOf="@id/txtPersonalInfo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

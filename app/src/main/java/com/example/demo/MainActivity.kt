@@ -3,14 +3,14 @@ package com.example.demo
 import ConstraintLayoutDemo.ConstraintLayoutDemo
 import DrawableDemo.DrawableDemo
 import IntentDemo.LoginActivity
-import ViewsDemo.DetailsActivity
-import ViewsDemo.SignUp
+import ListViewDemo.ListViewDemo
+import ViewPagerDemo.ViewPagerDemo
+import ViewPagerDemo.racipesViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnConstaint : Button
     lateinit var btnViews : Button
     lateinit var btnDrawable : Button
+    lateinit var btnViewPager : Button
+    lateinit var btnListView : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         btnConstaint = findViewById<Button>(R.id.constraintLayoutDemo)
         btnViews = findViewById<Button>(R.id.viewsDemo)
         btnDrawable = findViewById<Button>(R.id.drawableDemo)
+        btnViewPager = findViewById(R.id.viewPagerDemo)
+        btnListView = findViewById(R.id.listViewDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -49,6 +53,15 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(applicationContext,DrawableDemo::class.java)
             startActivity(intent)
         }
+        btnViewPager.setOnClickListener(){
+            intent = Intent(applicationContext,ViewPagerDemo::class.java)
+            startActivity(intent)
+        }
+        btnListView.setOnClickListener(){
+            intent = Intent(applicationContext,ListViewDemo::class.java)
+            startActivity(intent)
+        }
+
     }
 }
 

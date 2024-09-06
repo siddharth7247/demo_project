@@ -9,7 +9,6 @@
     tools:context="ViewsDemo.ViewsDemoActivity">
 
     <ScrollView
-
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:background="#F2EFE9"
@@ -26,6 +25,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/img_2"
             android:gravity="center"
+            android:padding="20dp"
             android:orientation="vertical">
 
             <TextView

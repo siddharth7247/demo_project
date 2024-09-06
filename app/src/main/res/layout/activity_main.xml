@@ -51,6 +51,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Drawable Demo" />
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/viewPagerDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Pager Demo" />
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/listViewDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ListView Demo" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

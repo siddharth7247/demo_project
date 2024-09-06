@@ -2,15 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ViewPagerDemo.DinnerFragment">
+    tools:context="ViewPagerDemo.Fragment_Tuesday">
 
     <!-- TODO: Update blank fragment layout -->
-    <Button
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dinner Racipe"
-        android:backgroundTint="#1DAFA4"
-        android:layout_marginTop="300dp"
+        android:layout_height="match_parent"
+        android:text="Tuesday"
+        android:textSize="30dp"
+        android:textColor="@color/black"
         android:gravity="center"/>
 
 </FrameLayout>
