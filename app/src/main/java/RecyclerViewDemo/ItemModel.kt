@@ -1,0 +1,4 @@
+package RecyclerViewDemo
+
+class ItemModel {
+}
