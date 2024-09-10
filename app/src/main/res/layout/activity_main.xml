@@ -67,6 +67,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ListView Demo" />
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/recyclerViewDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RecyclerView Demo" />
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/cordinatorLayoutDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cordinator Layout Demo" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

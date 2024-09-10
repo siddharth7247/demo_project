@@ -1,9 +1,11 @@
 package com.example.demo
 
 import ConstraintLayoutDemo.ConstraintLayoutDemo
+import CordinatorLayoutDemo.CordinatorLayoutDemo
 import DrawableDemo.DrawableDemo
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
+import RecyclerViewDemo.RecyclerViewDemo
 import ViewPagerDemo.ViewPagerDemo
 import ViewPagerDemo.racipesViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnDrawable : Button
     lateinit var btnViewPager : Button
     lateinit var btnListView : Button
+    lateinit var btnRecyclerView : Button
+    lateinit var btnCordinator : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         btnDrawable = findViewById<Button>(R.id.drawableDemo)
         btnViewPager = findViewById(R.id.viewPagerDemo)
         btnListView = findViewById(R.id.listViewDemo)
+        btnRecyclerView = findViewById(R.id.recyclerViewDemo)
+        btnCordinator = findViewById(R.id.cordinatorLayoutDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -59,6 +65,14 @@ class MainActivity : AppCompatActivity() {
         }
         btnListView.setOnClickListener(){
             intent = Intent(applicationContext,ListViewDemo::class.java)
+            startActivity(intent)
+        }
+        btnRecyclerView.setOnClickListener(){
+            intent = Intent(applicationContext,RecyclerViewDemo::class.java)
+            startActivity(intent)
+        }
+        btnCordinator.setOnClickListener(){
+            intent = Intent(applicationContext,CordinatorLayoutDemo::class.java)
             startActivity(intent)
         }
 

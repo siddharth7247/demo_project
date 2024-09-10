@@ -1,7 +1,6 @@
 package ViewsDemo
 
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,8 +22,8 @@ class DetailsActivity : AppCompatActivity() {
             insets
 
         }
-        firstName = findViewById(R.id.fname)
-        lastName = findViewById(R.id.lname)
+        firstName = findViewById(R.id.name)
+        lastName = findViewById(R.id.rollNo)
         Email = findViewById(R.id.eml)
 
         var bundle : Bundle? = intent.extras
