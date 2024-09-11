@@ -83,6 +83,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cordinator Layout Demo" />
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/snackBarDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SnackBar Demo" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

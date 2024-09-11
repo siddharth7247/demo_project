@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="SnackBarDemo.SnackBarDemo">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:title="SnackBar Demo"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:gravity="start"
+        android:layout_height="80dp"
+        app:fabAlignmentMode="end"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/teal_200"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addFab"
+        android:layout_width="wrap_content"
+        android:src="@drawable/add"
+        android:layout_height="wrap_content"
+        android:contentDescription="a"
+        app:layout_anchorGravity="center"
+        android:backgroundTint="@color/purple_200"
+        app:layout_anchor="@id/bottomAppBar"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addAlarm"
+        android:layout_width="wrap_content"
+        android:src="@drawable/alarm"
+        android:layout_height="wrap_content"
+        app:layout_anchorGravity="center|top"
+        android:backgroundTint="@color/teal_200"
+        android:visibility="invisible"
+        android:layout_marginBottom="120dp"
+        android:contentDescription="b"
+        app:layout_anchor="@id/addFab"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="190dp"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="Add Person"
+        android:visibility="invisible"
+        android:src="@drawable/add_person"
+        app:layout_anchor="@id/addAlarm"
+        app:layout_anchorGravity="center|top" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="260dp"
+        android:backgroundTint="@color/teal_200"
+        android:visibility="invisible"
+        android:contentDescription="c"
+        android:src="@drawable/ic_edit"
+        app:layout_anchor="@id/addPerson"
+        app:layout_anchorGravity="center|top" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

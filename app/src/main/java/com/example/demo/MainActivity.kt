@@ -6,6 +6,8 @@ import DrawableDemo.DrawableDemo
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
 import RecyclerViewDemo.RecyclerViewDemo
+import RecyclerViewDemo2.RecyclerViewDemo2
+import SnackBarDemo.SnackBarDemo
 import ViewPagerDemo.ViewPagerDemo
 import ViewPagerDemo.racipesViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
@@ -25,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnListView : Button
     lateinit var btnRecyclerView : Button
     lateinit var btnCordinator : Button
+    lateinit var btnSnackbar : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         btnListView = findViewById(R.id.listViewDemo)
         btnRecyclerView = findViewById(R.id.recyclerViewDemo)
         btnCordinator = findViewById(R.id.cordinatorLayoutDemo)
+        btnSnackbar = findViewById(R.id.snackBarDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -68,11 +72,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnRecyclerView.setOnClickListener(){
-            intent = Intent(applicationContext,RecyclerViewDemo::class.java)
+            intent = Intent(applicationContext,RecyclerViewDemo2::class.java)
             startActivity(intent)
         }
         btnCordinator.setOnClickListener(){
             intent = Intent(applicationContext,CordinatorLayoutDemo::class.java)
+            startActivity(intent)
+        }
+        btnSnackbar.setOnClickListener(){
+            intent = Intent(applicationContext,SnackBarDemo::class.java)
             startActivity(intent)
         }
 
