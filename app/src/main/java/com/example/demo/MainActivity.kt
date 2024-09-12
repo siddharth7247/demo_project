@@ -3,6 +3,7 @@ package com.example.demo
 import ConstraintLayoutDemo.ConstraintLayoutDemo
 import CordinatorLayoutDemo.CordinatorLayoutDemo
 import DrawableDemo.DrawableDemo
+import FontsDemo.FontDemo
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
 import RecyclerViewDemo.RecyclerViewDemo
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
+import com.example.demo.R.id.fontsDemo
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnRecyclerView : Button
     lateinit var btnCordinator : Button
     lateinit var btnSnackbar : Button
+    lateinit var btnFonts : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         btnRecyclerView = findViewById(R.id.recyclerViewDemo)
         btnCordinator = findViewById(R.id.cordinatorLayoutDemo)
         btnSnackbar = findViewById(R.id.snackBarDemo)
+        btnFonts = findViewById(R.id.fontsDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -81,6 +85,10 @@ class MainActivity : AppCompatActivity() {
         }
         btnSnackbar.setOnClickListener(){
             intent = Intent(applicationContext,SnackBarDemo::class.java)
+            startActivity(intent)
+        }
+        btnFonts.setOnClickListener(){
+            intent = Intent(applicationContext,FontDemo::class.java)
             startActivity(intent)
         }
 

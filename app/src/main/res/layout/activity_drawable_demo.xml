@@ -36,8 +36,8 @@
             android:background="@drawable/textboxstyal"
             android:drawableLeft="@drawable/person"
             android:hint="@string/enter_firstname"
+            android:fontFamily="@font/agbalumo"
             android:padding="7dp"
-            android:fontFamily="@font/protest"
             android:textSize="24dp" />
 
         <EditText
