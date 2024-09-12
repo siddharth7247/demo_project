@@ -6,18 +6,21 @@ import DrawableDemo.DrawableDemo
 import FontsDemo.FontDemo
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
+import MenuDemo.ContextMenu
+import MenuDemo.MenuDemo
 import RecyclerViewDemo.RecyclerViewDemo
 import RecyclerViewDemo2.RecyclerViewDemo2
 import SnackBarDemo.SnackBarDemo
 import ViewPagerDemo.ViewPagerDemo
-import ViewPagerDemo.racipesViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
-import com.example.demo.R.id.fontsDemo
+import com.example.demo.R.id.menuDemo
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +34,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnCordinator : Button
     lateinit var btnSnackbar : Button
     lateinit var btnFonts : Button
+    lateinit var btnMenu : Button
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -47,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         btnCordinator = findViewById(R.id.cordinatorLayoutDemo)
         btnSnackbar = findViewById(R.id.snackBarDemo)
         btnFonts = findViewById(R.id.fontsDemo)
+        btnMenu = findViewById(R.id.menuDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -91,7 +97,10 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(applicationContext,FontDemo::class.java)
             startActivity(intent)
         }
-
+        btnMenu.setOnClickListener(){
+            intent = Intent(applicationContext, MenuDemo::class.java)
+            startActivity(intent)
+        }
     }
 }
 
