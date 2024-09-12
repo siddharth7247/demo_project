@@ -37,6 +37,7 @@
             android:drawableLeft="@drawable/person"
             android:hint="@string/enter_firstname"
             android:padding="7dp"
+            android:fontFamily="@font/protest"
             android:textSize="24dp" />
 
         <EditText
@@ -49,6 +50,7 @@
             android:background="@drawable/textboxstyal"
             android:drawableLeft="@drawable/person"
             android:hint="@string/enter_lastname"
+            android:fontFamily="@font/protest"
             android:padding="7dp"
             android:textSize="24dp" />
 
@@ -64,6 +66,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_weight="1"
                 android:background="@drawable/btnstyle"
+                android:fontFamily="@font/protest"
                 android:text="login"
                 android:textColor="@color/black" />
 
@@ -74,6 +77,7 @@
                 android:layout_marginEnd="30dp"
                 android:layout_weight="1"
                 android:background="@drawable/btnstyle"
+                android:fontFamily="@font/protest"
                 android:text="Reset"
                 android:textColor="@color/black" />
         </LinearLayout>
