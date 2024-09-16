@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import com.example.demo.R.id.menuDemo
+import dialogDemo.DialogDemo
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnSnackbar : Button
     lateinit var btnFonts : Button
     lateinit var btnMenu : Button
+    lateinit var btnDialog : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         btnSnackbar = findViewById(R.id.snackBarDemo)
         btnFonts = findViewById(R.id.fontsDemo)
         btnMenu = findViewById(R.id.menuDemo)
+        btnDialog = findViewById(R.id.dialogDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -99,6 +102,10 @@ class MainActivity : AppCompatActivity() {
         }
         btnMenu.setOnClickListener(){
             intent = Intent(applicationContext, MenuDemo::class.java)
+            startActivity(intent)
+        }
+        btnDialog.setOnClickListener(){
+            intent = Intent(applicationContext, DialogDemo::class.java)
             startActivity(intent)
         }
     }

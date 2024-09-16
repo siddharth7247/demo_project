@@ -107,6 +107,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Menu Demo" />
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/dialogDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dialog Box Demo" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
