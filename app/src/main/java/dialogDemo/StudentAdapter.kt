@@ -1,0 +1,4 @@
+package dialogDemo
+
+class StudentAdapter {
+}
