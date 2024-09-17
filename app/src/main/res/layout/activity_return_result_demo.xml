@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ReturnResultDemo.ReturnResultDemo">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/profile"
+        android:background="@drawable/shape_img"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username :"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10sp"
+        app:layout_constraintStart_toStartOf="@id/imageView1"
+        app:layout_constraintTop_toBottomOf="@id/imageView1"
+        app:layout_constraintEnd_toStartOf="@id/txtUserName"/>
+
+    <TextView
+        android:id="@+id/txtUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Siddharth123"
+        android:textSize="25sp"
+        android:textStyle="bold"
+         app:layout_constraintStart_toEndOf="@id/userName"
+        app:layout_constraintEnd_toEndOf="@id/imageView1"
+        app:layout_constraintTop_toTopOf="@id/userName"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email :"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/userName"
+        app:layout_constraintStart_toStartOf="@id/userName"
+      />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" s@gmail.com"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/email"
+        app:layout_constraintEnd_toEndOf="@id/txtUserName"
+        app:layout_constraintTop_toTopOf="@id/email"/>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address :"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/email"
+        app:layout_constraintStart_toStartOf="@id/userName"
+        />
+
+    <TextView
+        android:id="@+id/txtAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Rajkot"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/address"
+        app:layout_constraintEnd_toEndOf="@id/txtUserName"
+        app:layout_constraintTop_toTopOf="@id/address"/>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Profile"
+        android:layout_marginTop="20dp"
+        android:padding="10sp"
+        android:background="@drawable/btnstyle"
+        app:layout_constraintStart_toStartOf="@id/userName"
+        app:layout_constraintEnd_toEndOf="@id/txtUserName"
+        app:layout_constraintTop_toBottomOf="@id/address"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

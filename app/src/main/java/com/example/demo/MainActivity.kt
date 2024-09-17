@@ -10,6 +10,7 @@ import MenuDemo.ContextMenu
 import MenuDemo.MenuDemo
 import RecyclerViewDemo.RecyclerViewDemo
 import RecyclerViewDemo2.RecyclerViewDemo2
+import ReturnResultDemo.ReturnResultDemo
 import SnackBarDemo.SnackBarDemo
 import ViewPagerDemo.ViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
@@ -21,6 +22,7 @@ import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import com.example.demo.R.id.menuDemo
 import dialogDemo.DialogDemo
+import dialogDemo.precticeDialog
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnFonts : Button
     lateinit var btnMenu : Button
     lateinit var btnDialog : Button
+    lateinit var btnReturnResultDemo : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         btnFonts = findViewById(R.id.fontsDemo)
         btnMenu = findViewById(R.id.menuDemo)
         btnDialog = findViewById(R.id.dialogDemo)
+        btnReturnResultDemo = findViewById(R.id.returnResultDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -108,6 +112,11 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(applicationContext, DialogDemo::class.java)
             startActivity(intent)
         }
+        btnReturnResultDemo.setOnClickListener(){
+            intent = Intent(applicationContext, ReturnResultDemo::class.java)
+            startActivity(intent)
+        }
+
     }
 }
 

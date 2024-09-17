@@ -34,6 +34,7 @@ class RecyclerViewDemo : AppCompatActivity() {
 
         myAdapter = ItemAdapter(items,this)
         recyclerView.adapter = myAdapter
+
         myAdapter.onbtnClick(object : btnClickListner{
             override fun btnClickListner(view: View, position: Int, item: ItemModel) {
                 intent = Intent(this@RecyclerViewDemo,DetailsActivity::class.java)

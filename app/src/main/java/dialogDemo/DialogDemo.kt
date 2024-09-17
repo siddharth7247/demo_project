@@ -65,10 +65,10 @@ class DialogDemo : AppCompatActivity() {
                 val datePicker = DatePickerDialog(
                     this,
                     {view, year, monthOfYear, dayOfMonth ->
-                        val date = (dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year)
+                        val date = ((dayOfMonth).toString() + "/" + (monthOfYear + 1) + "/" + year)
                         txtDateOfBirth.setText(date)
                     },
-                    year,month,day
+                    2002,12,14
                 )
                 datePicker.datePicker.setMaxDate(cal.timeInMillis)
                 datePicker.show()
