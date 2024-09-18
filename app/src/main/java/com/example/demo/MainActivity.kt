@@ -4,11 +4,11 @@ import ConstraintLayoutDemo.ConstraintLayoutDemo
 import CordinatorLayoutDemo.CordinatorLayoutDemo
 import DrawableDemo.DrawableDemo
 import FontsDemo.FontDemo
+import FragmentDemo.FragmentDemo
+import FragmentDemo.FragmentDemo1
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
-import MenuDemo.ContextMenu
 import MenuDemo.MenuDemo
-import RecyclerViewDemo.RecyclerViewDemo
 import RecyclerViewDemo2.RecyclerViewDemo2
 import ReturnResultDemo.ReturnResultDemo
 import SnackBarDemo.SnackBarDemo
@@ -20,9 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
-import com.example.demo.R.id.menuDemo
 import dialogDemo.DialogDemo
-import dialogDemo.precticeDialog
 
 
 class MainActivity : AppCompatActivity() {
@@ -40,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnMenu : Button
     lateinit var btnDialog : Button
     lateinit var btnReturnResultDemo : Button
+    lateinit var btnFragment : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         btnMenu = findViewById(R.id.menuDemo)
         btnDialog = findViewById(R.id.dialogDemo)
         btnReturnResultDemo = findViewById(R.id.returnResultDemo)
+        btnFragment = findViewById(R.id.fragmenttDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -114,6 +114,10 @@ class MainActivity : AppCompatActivity() {
         }
         btnReturnResultDemo.setOnClickListener(){
             intent = Intent(applicationContext, ReturnResultDemo::class.java)
+            startActivity(intent)
+        }
+        btnFragment.setOnClickListener{
+            intent = Intent(applicationContext,FragmentDemo::class.java)
             startActivity(intent)
         }
 

@@ -55,7 +55,7 @@
                 android:drawableLeft="@drawable/person"
                 android:hint=" Enter Firstname"
                 android:padding="7dp"
-                android:textSize="24dp" />
+                android:textSize="@dimen/text_size" />
 
             <EditText
                 android:id="@+id/lastName"

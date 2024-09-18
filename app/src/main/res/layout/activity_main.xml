@@ -125,6 +125,15 @@
             android:layout_height="wrap_content"
             android:text="Return Result Demo" />
 
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/fragmenttDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fragment Demo" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

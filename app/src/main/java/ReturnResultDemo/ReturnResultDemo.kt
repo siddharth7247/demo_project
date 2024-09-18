@@ -22,7 +22,7 @@ class ReturnResultDemo : AppCompatActivity() {
     lateinit var txtEmail : TextView
     lateinit var txtAddress : TextView
     lateinit var imageView: ImageView
-
+    val dataRequestCode = 200
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +34,14 @@ class ReturnResultDemo : AppCompatActivity() {
         txtAddress = findViewById(R.id.txtAddress)
         imageView = findViewById(R.id.imageView1)
 
+
+
         btnUpdate.setOnClickListener{
             intent = Intent(applicationContext,EditActivity::class.java)
             intent.putExtra("userName",txtUsername.text)
             intent.putExtra("email",txtEmail.text)
             intent.putExtra("address",txtAddress.text)
-            startActivityForResult(intent,10)
+            startActivityForResult(intent,dataRequestCode)
         }
 
         val image = registerForActivityResult(ActivityResultContracts.GetContent()){
@@ -52,7 +54,7 @@ class ReturnResultDemo : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 10){
+        if(requestCode == dataRequestCode){
             txtUsername.setText(data?.getStringExtra("userName"))
             txtEmail.setText(data?.getStringExtra("email"))
             txtAddress.setText(data?.getStringExtra("address"))
