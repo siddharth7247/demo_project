@@ -3,16 +3,20 @@ package dialogDemo
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.icu.util.Calendar
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demo.R
 import com.example.demo.R.id.txtDateOfBirth
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatterBuilder
 
 class DialogDemo : AppCompatActivity() {
 
@@ -24,6 +28,7 @@ class DialogDemo : AppCompatActivity() {
     lateinit var studentRcView : RecyclerView
     lateinit var myadapter : StudentAdapter
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +70,10 @@ class DialogDemo : AppCompatActivity() {
                 val datePicker = DatePickerDialog(
                     this,
                     {view, year, monthOfYear, dayOfMonth ->
-                        val date = ((dayOfMonth).toString() + "/" + (monthOfYear + 1) + "/" + year)
+                        var date = ((dayOfMonth).toString() + "/" + (monthOfYear + 1) + "/" + year)
+
+//                        val formatter = DateTimeFormatterBuilder().appendPattern("dd.LLLL.yyyy").toFormatter()
+//                        formatter.parse(date)
                         txtDateOfBirth.setText(date)
                     },
                     2002,12,14

@@ -9,6 +9,7 @@ import FragmentDemo.FragmentDemo1
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
 import MenuDemo.MenuDemo
+import PermissionDemo.PermissionDemo
 import RecyclerViewDemo2.RecyclerViewDemo2
 import ReturnResultDemo.ReturnResultDemo
 import SnackBarDemo.SnackBarDemo
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnDialog : Button
     lateinit var btnReturnResultDemo : Button
     lateinit var btnFragment : Button
+    lateinit var btnPermission : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         btnDialog = findViewById(R.id.dialogDemo)
         btnReturnResultDemo = findViewById(R.id.returnResultDemo)
         btnFragment = findViewById(R.id.fragmenttDemo)
+        btnPermission = findViewById(R.id.permissionDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -118,6 +121,10 @@ class MainActivity : AppCompatActivity() {
         }
         btnFragment.setOnClickListener{
             intent = Intent(applicationContext,FragmentDemo::class.java)
+            startActivity(intent)
+        }
+        btnPermission.setOnClickListener{
+            intent = Intent(applicationContext,PermissionDemo::class.java)
             startActivity(intent)
         }
 

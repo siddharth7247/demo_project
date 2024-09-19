@@ -1,11 +1,13 @@
 package FragmentDemo
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.activity.OnBackPressedCallback
 import com.example.demo.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -30,11 +32,26 @@ class Fragment1 : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback = object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                if(childFragmentManager.backStackEntryCount > 0) {
+                    childFragmentManager.popBackStack()
+                    return
+                }
+                parentFragmentManager.popBackStack()
+                requireActivity().finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this,callback)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -52,19 +69,19 @@ class Fragment1 : Fragment() {
         btn11.setOnClickListener{
             val transition = childFragmentManager.beginTransaction()
             transition.replace(R.id.childFragmentContainer,Fragment_1_1())
-            transition.addToBackStack("f1")
+            transition.addToBackStack(null)
             transition.commit()
         }
         btn12.setOnClickListener{
             val transition = childFragmentManager.beginTransaction()
             transition.replace(R.id.childFragmentContainer,Fragment_1_2())
-            transition.addToBackStack("f2")
+            transition.addToBackStack(null)
             transition.commit()
         }
         btn13.setOnClickListener{
             val transition = childFragmentManager.beginTransaction()
             transition.replace(R.id.childFragmentContainer,Fragment_1_3())
-            transition.addToBackStack("f3")
+            transition.addToBackStack(null)
             transition.commit()
         }
     }
