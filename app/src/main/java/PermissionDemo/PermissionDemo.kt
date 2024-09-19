@@ -42,17 +42,8 @@ class PermissionDemo : AppCompatActivity() {
             }else{
                 Toast.makeText(this, "Read Storage Permission is alredy Grantd", Toast.LENGTH_SHORT).show()
             }
-        }
-        btnStorage.setOnClickListener{
-            if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),20)
-            }else{
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),25)
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),100)
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),23)
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),26)
 
-            }
+
         }
     }
 }
