@@ -27,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
             intent.putExtra("username",username.text)
             intent.putExtra("password",password.text)
             startActivity(intent)
+            startActivity(intent)
         }
     }
 

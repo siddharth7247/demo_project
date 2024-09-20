@@ -6,11 +6,14 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.example.foodcart.permission.ACCESS" />
 
+    <queries>
+        <package android:name="com.example.foodcart" />
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -23,6 +26,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo"
         tools:targetApi="33">
+        <activity
+            android:name="SharedPrefrencesDemo.UserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="SharedPrefrencesDemo.UserDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name="PermissionDemo.WeatherApp"
+            android:exported="false" />
         <activity
             android:name="PermissionDemo.PermissionDemo"
             android:exported="false" />

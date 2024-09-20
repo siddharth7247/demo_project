@@ -12,6 +12,7 @@ import MenuDemo.MenuDemo
 import PermissionDemo.PermissionDemo
 import RecyclerViewDemo2.RecyclerViewDemo2
 import ReturnResultDemo.ReturnResultDemo
+import SharedPrefrencesDemo.UserDetailsActivity
 import SnackBarDemo.SnackBarDemo
 import ViewPagerDemo.ViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
@@ -21,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
+import com.google.android.material.button.MaterialButtonToggleGroup
 import dialogDemo.DialogDemo
 
 
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnReturnResultDemo : Button
     lateinit var btnFragment : Button
     lateinit var btnPermission : Button
+    lateinit var btnSharedPrefrences : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         btnReturnResultDemo = findViewById(R.id.returnResultDemo)
         btnFragment = findViewById(R.id.fragmenttDemo)
         btnPermission = findViewById(R.id.permissionDemo)
+        btnSharedPrefrences = findViewById(R.id.sharedPrefrencesDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -125,6 +129,10 @@ class MainActivity : AppCompatActivity() {
         }
         btnPermission.setOnClickListener{
             intent = Intent(applicationContext,PermissionDemo::class.java)
+            startActivity(intent)
+        }
+        btnSharedPrefrences.setOnClickListener{
+            intent = Intent(applicationContext,UserDetailsActivity::class.java)
             startActivity(intent)
         }
 
