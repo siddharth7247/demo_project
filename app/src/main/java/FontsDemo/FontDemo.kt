@@ -10,17 +10,20 @@ import com.example.demo.R
 
 class FontDemo : AppCompatActivity() {
 
-    lateinit var txtParagraph : TextView
+     val txtParagraph by lazy {  findViewById<TextView>(R.id.txtParagraph)}
     lateinit var btnRoman : Button
     lateinit var btnProtest : Button
     lateinit var btnAgbalumo : Button
+    val x by lazy { 45 }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_font_demo)
 
-        txtParagraph = findViewById(R.id.txtParagraph)
+
+
+
         btnRoman = findViewById(R.id.btnRoman)
         btnProtest = findViewById(R.id.btnProtest)
         btnAgbalumo = findViewById(R.id.btnAgblumo)
@@ -38,6 +41,7 @@ class FontDemo : AppCompatActivity() {
         btnAgbalumo.setOnClickListener{
             txtParagraph.typeface = fontPoppins
         }
+
 
     }
 }

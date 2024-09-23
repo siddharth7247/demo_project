@@ -1,7 +1,9 @@
 package SharedPrefrencesDemo
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +22,7 @@ class UserProfileActivity : AppCompatActivity() {
     lateinit var txtEmail : TextView
     lateinit var txtPhone : TextView
     lateinit var txtAddress : TextView
+    lateinit var btnLogout : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +34,7 @@ class UserProfileActivity : AppCompatActivity() {
         txtEmail = findViewById(R.id.email)
         txtPhone = findViewById(R.id.phone)
         txtAddress = findViewById(R.id.address)
+        btnLogout = findViewById(R.id.btnLogout)
 
         val sh = getSharedPreferences("userData", MODE_PRIVATE)
 
@@ -45,6 +49,19 @@ class UserProfileActivity : AppCompatActivity() {
         txtEmail.setText(email)
         txtPhone.setText(phone)
         txtAddress.setText(address)
+
+        btnLogout.setOnClickListener{
+            val myshp = sh.edit()
+            myshp.remove("firstName")
+            myshp.remove("lastName")
+            myshp.remove("email")
+            myshp.remove("phone")
+            myshp.remove("address")
+            myshp.apply()
+
+            intent = Intent(applicationContext,UserDetailsActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

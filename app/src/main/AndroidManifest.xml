@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="com.example.foodcart.permission.ACCESS" />
-
     <queries>
         <package android:name="com.example.foodcart" />
     </queries>
@@ -26,6 +25,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo"
         tools:targetApi="33">
+        <activity
+            android:name="IntentFilterDemo.IntentFilterDemoActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action  android:name="android.intent.action.SEND"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name="SharedPrefrencesDemo.IndexActivity"
+            android:exported="false" />
+        <activity
+            android:name="SharedPrefrencesDemo.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name="SharedPrefrencesDemo.EncryptedSharedPreferencesActivity"
+            android:exported="false" />
         <activity
             android:name="SharedPrefrencesDemo.UserProfileActivity"
             android:exported="false" />

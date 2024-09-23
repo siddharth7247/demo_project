@@ -28,12 +28,12 @@ class PermissionDemo : AppCompatActivity() {
        }
        btnFoodCart.setOnClickListener{
 
-           if(ContextCompat.checkSelfPermission(this,"com.example.foodcart.permission.ACCESS") == PackageManager.PERMISSION_DENIED){
-               ActivityCompat.requestPermissions(this, arrayOf("com.example.foodcart.permission.ACCESS"),23)
-           }
+//           if(ContextCompat.checkSelfPermission(this,"com.example.foodcart.permission.ACCESS") == PackageManager.PERMISSION_DENIED){
+//               ActivityCompat.requestPermissions(this, arrayOf("com.example.foodcart.permission.ACCESS"),23)
+//           }
 
-//           val intent = packageManager.getLaunchIntentForPackage("com.example.foodcart")
-//           startActivity(intent)
+           val intent = packageManager.getLaunchIntentForPackage("com.example.foodcart")
+           startActivity(intent)
        }
     }
 }

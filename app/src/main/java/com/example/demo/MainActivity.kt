@@ -10,8 +10,11 @@ import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
 import MenuDemo.MenuDemo
 import PermissionDemo.PermissionDemo
+import RecyclerViewDemo.RecyclerViewDemo
 import RecyclerViewDemo2.RecyclerViewDemo2
 import ReturnResultDemo.ReturnResultDemo
+import SharedPrefrencesDemo.EncryptedSharedPreferencesActivity
+import SharedPrefrencesDemo.IndexActivity
 import SharedPrefrencesDemo.UserDetailsActivity
 import SnackBarDemo.SnackBarDemo
 import ViewPagerDemo.ViewPagerDemo
@@ -96,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnRecyclerView.setOnClickListener(){
-            intent = Intent(applicationContext,RecyclerViewDemo2::class.java)
+            intent = Intent(applicationContext,RecyclerViewDemo::class.java)
             startActivity(intent)
         }
         btnCordinator.setOnClickListener(){
@@ -132,7 +135,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnSharedPrefrences.setOnClickListener{
-            intent = Intent(applicationContext,UserDetailsActivity::class.java)
+            intent = Intent(applicationContext,IndexActivity::class.java)
             startActivity(intent)
         }
 

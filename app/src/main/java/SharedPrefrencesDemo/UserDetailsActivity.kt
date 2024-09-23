@@ -1,7 +1,9 @@
 package SharedPrefrencesDemo
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -17,7 +19,9 @@ class UserDetailsActivity : AppCompatActivity() {
     lateinit var txtPhone : EditText
     lateinit var txtAddress : EditText
     lateinit var btnsubmit : Button
+    lateinit var shp : SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
 
@@ -27,22 +31,28 @@ class UserDetailsActivity : AppCompatActivity() {
         txtPhone = findViewById(R.id.txtPhone)
         txtAddress = findViewById(R.id.txtAddress)
         btnsubmit = findViewById(R.id.btnSubmit)
+        shp = getSharedPreferences("userData", MODE_PRIVATE)
 
         btnsubmit.setOnClickListener{
 
-            val shp = getSharedPreferences("userData", MODE_PRIVATE)
             val myShp = shp.edit()
 
             myShp.putString("firstName",txtFirstName.text.toString())
             myShp.putString("lastName",txtLastName.text.toString())
             myShp.putString("email",txtEmail.text.toString())
             myShp.putString("phone",txtPhone.text.toString())
-            myShp.putString("address",txtAddress.toString())
+            myShp.putString("address",txtAddress.text.toString())
 
             myShp.apply()
 
             intent = Intent(applicationContext,UserProfileActivity::class.java)
             startActivity(intent)
         }
+
+        if(shp.contains("firstName")){
+            intent = Intent(applicationContext,UserProfileActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
