@@ -15,7 +15,7 @@ class EncryptedSharedPreferencesActivity : AppCompatActivity() {
     lateinit var edtUserName : TextInputEditText
     lateinit var edtPassword : TextInputEditText
     lateinit var btnLogin : Button
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_encrypted_shared_preferences)

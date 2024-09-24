@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_2"
     tools:context=".MainActivity">
 
+    <ScrollView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/img_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +153,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Shared Prefrences Demo" />
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/webViewDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WebView Demo" />
+
+        <Button
+            android:backgroundTint="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/imageLoadingLibraryDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Image Loading Library" />
 
     </LinearLayout>
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

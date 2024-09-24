@@ -4,16 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.demo.R
-import com.example.demo.R.id.lastName
-import com.example.demo.R.id.phone
-import com.example.demo.R.id.txtFirstName
 
 class UserProfileActivity : AppCompatActivity() {
 

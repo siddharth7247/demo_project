@@ -19,6 +19,7 @@ import SharedPrefrencesDemo.UserDetailsActivity
 import SnackBarDemo.SnackBarDemo
 import ViewPagerDemo.ViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
+import WebViewDemo.WebViewDemoActivity
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,7 @@ import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import com.google.android.material.button.MaterialButtonToggleGroup
 import dialogDemo.DialogDemo
+import imageLoadingLibrary.GlideDemoActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -47,6 +49,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnFragment : Button
     lateinit var btnPermission : Button
     lateinit var btnSharedPrefrences : Button
+    lateinit var btnWebView : Button
+    lateinit var btnImageLoadingLibrary : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,32 +74,34 @@ class MainActivity : AppCompatActivity() {
         btnFragment = findViewById(R.id.fragmenttDemo)
         btnPermission = findViewById(R.id.permissionDemo)
         btnSharedPrefrences = findViewById(R.id.sharedPrefrencesDemo)
+        btnWebView = findViewById(R.id.webViewDemo)
+        btnImageLoadingLibrary = findViewById(R.id.imageLoadingLibraryDemo)
 
 
         btnIntent.setOnClickListener(){
-            intent = Intent(applicationContext, LoginActivity::class.java)
+            intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
         btnConstaint.setOnClickListener(){
-            intent = Intent(applicationContext, ConstraintLayoutDemo::class.java)
+            intent = Intent(this, ConstraintLayoutDemo::class.java)
             startActivity(intent)
         }
 
         btnViews.setOnClickListener(){
-            intent = Intent(applicationContext,ViewsDemoActivity::class.java)
+            intent = Intent(this,ViewsDemoActivity::class.java)
             startActivity(intent)
         }
         btnDrawable.setOnClickListener(){
-            intent = Intent(applicationContext,DrawableDemo::class.java)
+            intent = Intent(this,DrawableDemo::class.java)
             startActivity(intent)
         }
         btnViewPager.setOnClickListener(){
-            intent = Intent(applicationContext,ViewPagerDemo::class.java)
+            intent = Intent(this,ViewPagerDemo::class.java)
             startActivity(intent)
         }
         btnListView.setOnClickListener(){
-            intent = Intent(applicationContext,ListViewDemo::class.java)
+            intent = Intent(this,ListViewDemo::class.java)
             startActivity(intent)
         }
         btnRecyclerView.setOnClickListener(){
@@ -103,42 +109,49 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnCordinator.setOnClickListener(){
-            intent = Intent(applicationContext,CordinatorLayoutDemo::class.java)
+            intent = Intent(this,CordinatorLayoutDemo::class.java)
             startActivity(intent)
         }
         btnSnackbar.setOnClickListener(){
-            intent = Intent(applicationContext,SnackBarDemo::class.java)
+            intent = Intent(this,SnackBarDemo::class.java)
             startActivity(intent)
         }
         btnFonts.setOnClickListener(){
-            intent = Intent(applicationContext,FontDemo::class.java)
+            intent = Intent(this,FontDemo::class.java)
             startActivity(intent)
         }
         btnMenu.setOnClickListener(){
-            intent = Intent(applicationContext, MenuDemo::class.java)
+            intent = Intent(this, MenuDemo::class.java)
             startActivity(intent)
         }
         btnDialog.setOnClickListener(){
-            intent = Intent(applicationContext, DialogDemo::class.java)
+            intent = Intent(this, DialogDemo::class.java)
             startActivity(intent)
         }
         btnReturnResultDemo.setOnClickListener(){
-            intent = Intent(applicationContext, ReturnResultDemo::class.java)
+            intent = Intent(this, ReturnResultDemo::class.java)
             startActivity(intent)
         }
         btnFragment.setOnClickListener{
-            intent = Intent(applicationContext,FragmentDemo::class.java)
+            intent = Intent(this,FragmentDemo::class.java)
             startActivity(intent)
         }
         btnPermission.setOnClickListener{
-            intent = Intent(applicationContext,PermissionDemo::class.java)
+            intent = Intent(this,PermissionDemo::class.java)
             startActivity(intent)
         }
         btnSharedPrefrences.setOnClickListener{
-            intent = Intent(applicationContext,IndexActivity::class.java)
+            intent = Intent(this,IndexActivity::class.java)
             startActivity(intent)
         }
-
+        btnWebView.setOnClickListener{
+            intent = Intent(this,WebViewDemo.IndexActivity::class.java)
+            startActivity(intent)
+        }
+       btnImageLoadingLibrary.setOnClickListener{
+           intent = Intent(this,GlideDemoActivity::class.java)
+           startActivity(intent)
+       }
     }
 }
 
