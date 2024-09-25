@@ -29,6 +29,7 @@ import androidx.activity.enableEdgeToEdge
 import com.google.android.material.button.MaterialButtonToggleGroup
 import dialogDemo.DialogDemo
 import imageLoadingLibrary.GlideDemoActivity
+import roomDataBaseDemo.RoomDatabaseDemoActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnSharedPrefrences : Button
     lateinit var btnWebView : Button
     lateinit var btnImageLoadingLibrary : Button
+    lateinit var btnRoomDatabse : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         btnSharedPrefrences = findViewById(R.id.sharedPrefrencesDemo)
         btnWebView = findViewById(R.id.webViewDemo)
         btnImageLoadingLibrary = findViewById(R.id.imageLoadingLibraryDemo)
+        btnRoomDatabse = findViewById(R.id.roomDatabseDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -148,10 +151,14 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(this,WebViewDemo.IndexActivity::class.java)
             startActivity(intent)
         }
-       btnImageLoadingLibrary.setOnClickListener{
+        btnImageLoadingLibrary.setOnClickListener{
            intent = Intent(this,GlideDemoActivity::class.java)
            startActivity(intent)
        }
+        btnRoomDatabse.setOnClickListener{
+            intent = Intent(this, RoomDatabaseDemoActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
 

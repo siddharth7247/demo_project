@@ -21,9 +21,6 @@ class FontDemo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_font_demo)
 
-
-
-
         btnRoman = findViewById(R.id.btnRoman)
         btnProtest = findViewById(R.id.btnProtest)
         btnAgbalumo = findViewById(R.id.btnAgblumo)
