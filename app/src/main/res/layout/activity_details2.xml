@@ -109,10 +109,10 @@
         android:textColor="@color/black"
         android:textSize="24dp"
         android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/password"
         app:layout_constraintEnd_toEndOf="@id/txtPersonalInfo"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/eml"
-        app:layout_constraintTop_toTopOf="@id/email" />
+        app:layout_constraintTop_toTopOf="@id/eml" />
 
     <TextView
         android:id="@+id/address"

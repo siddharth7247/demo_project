@@ -25,18 +25,12 @@ class DetailsActivity : AppCompatActivity() {
         txtEmail = findViewById(R.id.eml)
         txtAddress = findViewById(R.id.add)
 
-        var bundle : Bundle? = intent.extras
+        var item = intent.getSerializableExtra("Item") as ItemModel
 
-        var name = bundle?.get("name")
-        var rollNo = bundle?.get("rollNo")
-        var phone = bundle?.get("phone")
-        var email = bundle?.get("email")
-        var address = bundle?.get("address")
-
-        txtName.text = name.toString()
-        txtRollNo.text = rollNo.toString()
-        txtPhone.text = phone.toString()
-        txtEmail.text = email.toString()
-        txtAddress.text = address.toString()
+        txtName.text = item.name
+        txtRollNo.text = item.rollno.toString()
+        txtPhone.text = item.phone.toString()
+        txtEmail.text = item.email
+        txtAddress.text = item.address
     }
 }

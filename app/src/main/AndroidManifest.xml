@@ -45,7 +45,10 @@
             android:exported="false" />
         <activity
             android:name="IntentFilterDemo.IntentFilterDemoActivity"
-            android:exported="true">
+            android:exported="true"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:roundIcon="@drawable/ic_home_black_24dp"
+            android:label="Share">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="android.intent.action.SEND" />

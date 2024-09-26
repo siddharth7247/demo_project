@@ -26,20 +26,47 @@ class AddItemActivity : AppCompatActivity() {
         edtItem = findViewById(R.id.idEdtItem)
         btnAddItem = findViewById(R.id.btnAdd)
 
-        btnAddItem.setOnClickListener{
-            var title : String = edtItem.text.toString()
-            var time = Calendar.getInstance().time.toString()
+        val item = intent.getSerializableExtra("item") as? Item
+        val uid = item?.uid
 
-            Thread {
-                val itemDB =
-                    Room.databaseBuilder(applicationContext, ItemDatabase::class.java, "itemsDB")
-                        .fallbackToDestructiveMigration().build()
-                val itemDao = itemDB.itemDao()
-                val item = Item(null, title, time)
-                itemDB.itemDao().insertAll(item)
-            }.start()
-            intent = Intent(this,RoomDatabaseDemoActivity::class.java)
-            startActivity(intent)
+        if(uid != null){
+            edtItem.setText(item.name)
+            btnAddItem.setText("Update Item")
+        }
+
+        btnAddItem.setOnClickListener{
+            if(uid != null){
+                val title : String = edtItem.text.toString()
+                val time = Calendar.getInstance().time.toString()
+                Thread {
+                    val itemDB =
+                        Room.databaseBuilder(applicationContext, ItemDatabase::class.java, "itemsDB")
+                            .fallbackToDestructiveMigration().build()
+                    val itemDao = itemDB.itemDao()
+                    val item = Item(item.uid, title, time)
+                    itemDB.itemDao().updateItem(item)
+                }.start()
+                intent = Intent(this, RoomDatabaseDemoActivity::class.java)
+                startActivity(intent)
+            }else {
+                var title: String = edtItem.text.toString()
+                var time = Calendar.getInstance().time.toString()
+
+                Thread {
+                    val itemDB =
+                        Room.databaseBuilder(
+                            applicationContext,
+                            ItemDatabase::class.java,
+                            "itemsDB"
+                        )
+                            .fallbackToDestructiveMigration().build()
+                    val itemDao = itemDB.itemDao()
+                    val item = Item(null, title, time)
+                    itemDB.itemDao().insertAll(item)
+                }.start()
+                intent = Intent(this, RoomDatabaseDemoActivity::class.java)
+                startActivity(intent)
+            }
         }
 
     }

@@ -38,11 +38,7 @@ class RecyclerViewDemo : AppCompatActivity() {
         myAdapter.onbtnClick(object : btnClickListner{
             override fun btnClickListner(view: View, position: Int, item: ItemModel) {
                 intent = Intent(applicationContext, DetailsActivity::class.java)
-                intent.putExtra("name",item.name)
-                intent.putExtra("rollNo",item.rollno)
-                intent.putExtra("phone",item.phone)
-                intent.putExtra("email",item.name)
-                intent.putExtra("address",item.address)
+                intent.putExtra("Item",item)
                 startActivity(intent)
             }
         })

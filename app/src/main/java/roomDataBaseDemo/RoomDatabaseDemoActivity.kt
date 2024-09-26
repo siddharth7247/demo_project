@@ -3,19 +3,12 @@ package roomDataBaseDemo
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.demo.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import org.w3c.dom.Text
 import java.lang.Thread
 import java.lang.Thread as Thread1
 
@@ -36,6 +29,7 @@ class RoomDatabaseDemoActivity : AppCompatActivity() {
         }
 
         recyclerView = findViewById(R.id.itemRecyclerView)
+
         Thread1 {
             val itemDB = Room.databaseBuilder(applicationContext,ItemDatabase::class.java,"itemsDB").fallbackToDestructiveMigration().build()
             val itemDao = itemDB.itemDao()
@@ -43,24 +37,21 @@ class RoomDatabaseDemoActivity : AppCompatActivity() {
             itemAdapter = ItemAdapter(itemList)
             recyclerView.adapter = itemAdapter
 
-            itemAdapter.onDeleteClick(object :btnDeleteClickListner{
-                override fun btnDeleteClickListner(view: View, position: Int, item: Item) {
+            itemAdapter.onDeleteClick(object :btnClickListner{
+                override fun btnClickListner(view: View, position: Int, item: Item) {
                     Thread{
                         itemDB.itemDao().delete(item)
+                        itemAdapter.notifyItemRemoved(position)
                     }.start()
-
                 }
             })
-            itemAdapter.onUpdateClick(object :btnUpdateClickListner{
-                override fun btnUpdateClickListner(view: View, position: Int, item: Item) {
-
+            itemAdapter.onUpdateClick(object :btnClickListner{
+                override fun btnClickListner(view: View, position: Int, item: Item) {
+                   intent = Intent(this@RoomDatabaseDemoActivity,AddItemActivity::class.java)
+                    intent.putExtra("item",item)
+                    startActivity(intent)
                 }
             })
         }.start()
-
-
-
-
-
     }
 }
