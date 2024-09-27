@@ -16,6 +16,8 @@ class RoomDatabaseDemoActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var itemAdapter : ItemAdapter
     lateinit var btnAddItem : FloatingActionButton
+    lateinit var itemDB : ItemDatabase
+    lateinit var itemDao : ItemDao
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +25,9 @@ class RoomDatabaseDemoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_room_database_demo)
 
         btnAddItem = findViewById(R.id.btnAddItem)
+        itemDB = Room.databaseBuilder(applicationContext,ItemDatabase::class.java,"itemsDB").fallbackToDestructiveMigration().build()
+        itemDao = itemDB.itemDao()
+
         btnAddItem.setOnClickListener{
             intent = Intent(this,AddItemActivity::class.java)
             startActivity(intent)
@@ -31,17 +36,13 @@ class RoomDatabaseDemoActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.itemRecyclerView)
 
         Thread1 {
-            val itemDB = Room.databaseBuilder(applicationContext,ItemDatabase::class.java,"itemsDB").fallbackToDestructiveMigration().build()
-            val itemDao = itemDB.itemDao()
             val itemList : List<Item> = itemDao.getAll()
             itemAdapter = ItemAdapter(itemList)
             recyclerView.adapter = itemAdapter
-
             itemAdapter.onDeleteClick(object :btnClickListner{
                 override fun btnClickListner(view: View, position: Int, item: Item) {
                     Thread{
                         itemDB.itemDao().delete(item)
-                        itemAdapter.notifyItemRemoved(position)
                     }.start()
                 }
             })

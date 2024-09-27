@@ -29,6 +29,9 @@
         android:theme="@style/Theme.Demo"
         tools:targetApi="33">
         <activity
+            android:name="RetrofitAndJSONDemo.UserDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name="roomDataBaseDemo.AddItemActivity"
             android:exported="false" />
         <activity
@@ -47,11 +50,13 @@
             android:name="IntentFilterDemo.IntentFilterDemoActivity"
             android:exported="true"
             android:icon="@drawable/ic_home_black_24dp"
-            android:roundIcon="@drawable/ic_home_black_24dp"
-            android:label="Share">
+            android:label="Share"
+            android:roundIcon="@drawable/ic_home_black_24dp">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <action android:name="android.intent.action.SEND" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>

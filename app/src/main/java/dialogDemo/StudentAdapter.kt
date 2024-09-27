@@ -16,17 +16,17 @@ class StudentAdapter(private var studentList: List<StudentModel>, context: Conte
     }
 
     class StudentViewHolder(studentView : View) : RecyclerView.ViewHolder(studentView){
-        var txtFirstName : TextView = studentView.findViewById(R.id.txtFname)
-        var txtLastNAme : TextView = studentView.findViewById(R.id.txtLname)
-        var txtBirtDate : TextView = studentView.findViewById(R.id.txtDob)
+//        var txtFirstName : TextView = studentView.findViewById(R.id.txtFname)
+//        var txtLastNAme : TextView = studentView.findViewById(R.id.txtLname)
+//        var txtBirtDate : TextView = studentView.findViewById(R.id.txtDob)
         var btnDelete : Button = studentView.findViewById(R.id.btnDelete)
     }
 
     override fun onBindViewHolder(holder: StudentAdapter.StudentViewHolder, position: Int) {
         var currentStud = studentList.get(position)
-        holder.txtFirstName.text = currentStud.firstname
-        holder.txtLastNAme.text = currentStud.lastname
-        holder.txtBirtDate.text = currentStud.birthdate
+//        holder.txtFirstName.text = currentStud.firstname
+//        holder.txtLastNAme.text = currentStud.lastname
+//        holder.txtBirtDate.text = currentStud.birthdate
         holder.btnDelete.setOnClickListener{
             //studentList.re
         }

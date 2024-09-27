@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnWebView : Button
     lateinit var btnImageLoadingLibrary : Button
     lateinit var btnRoomDatabse : Button
+    lateinit var btnRetrofit : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,6 +80,7 @@ class MainActivity : AppCompatActivity() {
         btnWebView = findViewById(R.id.webViewDemo)
         btnImageLoadingLibrary = findViewById(R.id.imageLoadingLibraryDemo)
         btnRoomDatabse = findViewById(R.id.roomDatabseDemo)
+        btnRetrofit = findViewById(R.id.RetrofitJSONDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -157,6 +159,10 @@ class MainActivity : AppCompatActivity() {
        }
         btnRoomDatabse.setOnClickListener{
             intent = Intent(this, RoomDatabaseDemoActivity::class.java)
+            startActivity(intent)
+        }
+        btnRetrofit.setOnClickListener{
+            intent = Intent(this,RetrofitAndJSONDemo.UserDetailsActivity::class.java)
             startActivity(intent)
         }
     }
