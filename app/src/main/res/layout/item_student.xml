@@ -98,7 +98,16 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btnstyle"
             android:text="Delete"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="250dp"/>
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btnstyle"
+            android:text="Update"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="250dp"/>
+
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

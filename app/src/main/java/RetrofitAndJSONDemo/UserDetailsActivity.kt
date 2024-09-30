@@ -5,11 +5,8 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demo.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -18,6 +15,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
+
 
 class UserDetailsActivity : AppCompatActivity() {
     lateinit var btnGetUsers : Button
@@ -34,11 +33,17 @@ class UserDetailsActivity : AppCompatActivity() {
         btnAddUser = findViewById(R.id.btnAdd)
         usersRecyclerView = findViewById(R.id.usersRecyclerView)
 
+//        getUsersData()
+//        userAdapter = UserAdapter(userList , this)
+//        usersRecyclerView.adapter = userAdapter
+
         btnGetUsers.setOnClickListener{
             getUsersData()
-            userAdapter = UserAdapter(userList)
+            userAdapter = UserAdapter(userList ,this)
             usersRecyclerView.adapter = userAdapter
         }
+
+
         btnAddUser.setOnClickListener{
             var builder = AlertDialog.Builder(this)
             val view = layoutInflater.inflate(R.layout.add_user,null)
@@ -52,43 +57,48 @@ class UserDetailsActivity : AppCompatActivity() {
             var txtCompany : TextView = view.findViewById(R.id.txtCompany)
             var txtAge : TextView = view.findViewById(R.id.txtAge)
             var btnSubmit : Button = view.findViewById(R.id.btnAddUser)
-
-            btnSubmit.setOnClickListener{
-                val retroFit = Retrofit.Builder().baseUrl("https://ca7bf3ce1b805f0ac07d.free.beeceptor.com").addConverterFactory(GsonConverterFactory.create()).build()
-                val retrofitApi = retroFit.create(UsersAPI::class.java)
-                var user = UserDataModel(txtName.text.toString(),txtCompany.text.toString(),txtAge.text.toString().toInt())
-
-                val call : Call<UserDataModel> = retrofitApi.addUser(user)
-                call.enqueue(object : Callback<UserDataModel>{
-                    override fun onResponse(
-                        call: Call<UserDataModel>,
-                        response: Response<UserDataModel>
-                    ) {
-                        Toast.makeText(this@UserDetailsActivity, "User Added", Toast.LENGTH_SHORT).show()
-                    }
-
-                    override fun onFailure(call: Call<UserDataModel>, t: Throwable) {
-                        Toast.makeText(this@UserDetailsActivity, "something went wrong", Toast.LENGTH_SHORT).show()
-                    }
-                })
-            }
-
             val alertDialog = builder.create()
             alertDialog.show()
+
+            btnSubmit.setOnClickListener{
+                addUser(txtName.text.toString(),txtCompany.text.toString(),txtAge.text.toString().toInt())
+                alertDialog.dismiss()
+                getUsersData()
+                userAdapter.notifyDataSetChanged()
+            }
         }
     }
-    fun getUsersData(){
-        val retroFit = Retrofit.Builder().baseUrl("https://ca7bf3ce1b805f0ac07d.free.beeceptor.com").addConverterFactory(GsonConverterFactory.create()).build()
-        val retrofitApi = retroFit.create(UsersAPI::class.java)
-        val call : Call<List<UserDataModel>> =  retrofitApi.getUsers()
 
-        call.enqueue(object : Callback<List<UserDataModel>> {
+    override fun onResume() {
+        super.onResume()
+        getUsersData()
+    }
+
+    fun addUser(name:String,company:String,age:Int){
+        var user = UserDataModel("",name,company,age)
+        RetrofitObject.Api.addUser(user).enqueue(object : Callback<UserDataModel>{
+            override fun onResponse(
+                call: Call<UserDataModel>,
+                response: Response<UserDataModel>
+            ) {
+                Toast.makeText(this@UserDetailsActivity, "User Added", Toast.LENGTH_SHORT).show()
+                getUsersData()
+            }
+
+            override fun onFailure(call: Call<UserDataModel>, t: Throwable) {
+                Toast.makeText(this@UserDetailsActivity, "something went wrong", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    fun getUsersData(){
+        RetrofitObject.Api.getUsers().enqueue(object : Callback<List<UserDataModel>> {
             override fun onResponse(
                 call: Call<List<UserDataModel>>,
                 response: Response<List<UserDataModel>>
             ) {
-                Toast.makeText(this@UserDetailsActivity, "api call successfull", Toast.LENGTH_SHORT).show()
                 userList = response.body()
+                Log.d("Get user data",response.body().toString())
             }
 
             override fun onFailure(call: Call<List<UserDataModel>>, t: Throwable) {
@@ -97,4 +107,5 @@ class UserDetailsActivity : AppCompatActivity() {
 
         })
     }
+
 }

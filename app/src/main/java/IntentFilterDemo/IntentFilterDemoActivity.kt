@@ -23,7 +23,7 @@ class IntentFilterDemoActivity : AppCompatActivity() {
 
         val message = intent.getStringExtra(Intent.EXTRA_TEXT)
 
-        if(intent.type == "text/plain"){
+        if(intent.type == "image/*"){
             txtMessage.setText(message.toString())
         }
         btnGmail.setOnClickListener{

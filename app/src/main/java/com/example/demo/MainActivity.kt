@@ -9,6 +9,7 @@ import FragmentDemo.FragmentDemo1
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
 import MenuDemo.MenuDemo
+import MultiThreadingDemo.Task1_Activity
 import PermissionDemo.PermissionDemo
 import RecyclerViewDemo.RecyclerViewDemo
 import RecyclerViewDemo2.RecyclerViewDemo2
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnImageLoadingLibrary : Button
     lateinit var btnRoomDatabse : Button
     lateinit var btnRetrofit : Button
+    lateinit var btnMultiThreading : Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         btnImageLoadingLibrary = findViewById(R.id.imageLoadingLibraryDemo)
         btnRoomDatabse = findViewById(R.id.roomDatabseDemo)
         btnRetrofit = findViewById(R.id.RetrofitJSONDemo)
+        btnMultiThreading = findViewById(R.id.multiThreadingDemo)
 
 
         btnIntent.setOnClickListener(){
@@ -163,6 +166,10 @@ class MainActivity : AppCompatActivity() {
         }
         btnRetrofit.setOnClickListener{
             intent = Intent(this,RetrofitAndJSONDemo.UserDetailsActivity::class.java)
+            startActivity(intent)
+        }
+        btnMultiThreading.setOnClickListener{
+            intent = Intent(this,Task1_Activity::class.java)
             startActivity(intent)
         }
     }
