@@ -31,5 +31,9 @@ class MultiThreadingDemoActivity : AppCompatActivity() {
             intent = Intent(this,Demo3_Activity::class.java)
             startActivity(intent)
         }
+        btnDemo4.setOnClickListener{
+            intent = Intent(this,Demo4_Activity::class.java)
+            startActivity(intent)
+        }
     }
 }

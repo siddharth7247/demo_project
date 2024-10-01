@@ -29,6 +29,9 @@
         android:theme="@style/Theme.Demo"
         tools:targetApi="33">
         <activity
+            android:name="MultiThreadingDemo.Demo4_Activity"
+            android:exported="false" />
+        <activity
             android:name="MultiThreadingDemo.Demo3_Activity"
             android:exported="false" />
         <activity

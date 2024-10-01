@@ -3,7 +3,6 @@ package MultiThreadingDemo
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -11,34 +10,47 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.demo.R
 
 class Demo2_Activity : AppCompatActivity() {
-    lateinit var looper: Looper
+
+    private lateinit var mainHandler: Handler
+    private lateinit var thread2Handler: Handler
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo2)
 
-        var txtNum = findViewById<EditText>(R.id.txtNum)
-        var btnSubmit = findViewById<Button>(R.id.btnSubmit)
-        var txtReslt_1 = findViewById<TextView>(R.id.txtResult1)
-        var txtResult_2 = findViewById<TextView>(R.id.txtResult2)
+        val txtNum = findViewById<EditText>(R.id.txtNum)
+        val btnSubmit = findViewById<Button>(R.id.btnSubmit)
+        val txtResult1 = findViewById<TextView>(R.id.txtResult1)
+        val txtResult2 = findViewById<TextView>(R.id.txtResult2)
 
+        mainHandler = Handler(Looper.getMainLooper())
 
-        var thread1 = Thread {
-            btnSubmit.setOnClickListener {
-                Log.d("Thread 1", "Thread 1 started")
-                var sum = txtNum.text.toString().toInt() + txtNum.text.toString().toInt()
+        btnSubmit.setOnClickListener {
+            var thread1 = Thread {
+                var num = txtNum.text.toString().toInt()
+                var sum = num + num
 
-                var handler = Handler(looper)
-                var message = handler.obtainMessage(sum)
-                handler.sendMessage(message)
-
-
+                mainHandler.post{
+                    txtResult1.setText(sum.toString())
+                }
+                var message = thread2Handler.obtainMessage()
+                message.arg1 = sum
+                thread2Handler.sendMessage(message)
             }
+            thread1.start()
         }
-        thread1.start()
-
         var thread2 = Thread {
-            looper = Looper.myLooper()!!
-            // looper.p
+            Looper.prepare()
+
+            thread2Handler = Handler(Looper.myLooper()!!) { message ->
+                var sum = message.arg1
+                var squre = sum * sum
+
+                mainHandler.post {
+                    txtResult2.setText(squre.toString())
+                }
+            }
+            Looper.loop()
         }
         thread2.start()
     }
