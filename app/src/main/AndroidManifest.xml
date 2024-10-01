@@ -29,7 +29,16 @@
         android:theme="@style/Theme.Demo"
         tools:targetApi="33">
         <activity
-            android:name="MultiThreadingDemo.Task1_Activity"
+            android:name="MultiThreadingDemo.Demo3_Activity"
+            android:exported="false" />
+        <activity
+            android:name="MultiThreadingDemo.Demo2_Activity"
+            android:exported="false" />
+        <activity
+            android:name="MultiThreadingDemo.MultiThreadingDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name="MultiThreadingDemo.Demo1_Activity"
             android:exported="false" />
         <activity
             android:name="RetrofitAndJSONDemo.UserDetailsActivity"

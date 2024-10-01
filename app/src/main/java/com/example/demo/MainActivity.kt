@@ -5,29 +5,24 @@ import CordinatorLayoutDemo.CordinatorLayoutDemo
 import DrawableDemo.DrawableDemo
 import FontsDemo.FontDemo
 import FragmentDemo.FragmentDemo
-import FragmentDemo.FragmentDemo1
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
 import MenuDemo.MenuDemo
-import MultiThreadingDemo.Task1_Activity
+import MultiThreadingDemo.Demo1_Activity
+import MultiThreadingDemo.MultiThreadingDemoActivity
 import PermissionDemo.PermissionDemo
 import RecyclerViewDemo.RecyclerViewDemo
-import RecyclerViewDemo2.RecyclerViewDemo2
 import ReturnResultDemo.ReturnResultDemo
-import SharedPrefrencesDemo.EncryptedSharedPreferencesActivity
 import SharedPrefrencesDemo.IndexActivity
-import SharedPrefrencesDemo.UserDetailsActivity
 import SnackBarDemo.SnackBarDemo
 import ViewPagerDemo.ViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
-import WebViewDemo.WebViewDemoActivity
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
-import com.google.android.material.button.MaterialButtonToggleGroup
 import dialogDemo.DialogDemo
 import imageLoadingLibrary.GlideDemoActivity
 import roomDataBaseDemo.RoomDatabaseDemoActivity
@@ -169,7 +164,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnMultiThreading.setOnClickListener{
-            intent = Intent(this,Task1_Activity::class.java)
+            intent = Intent(this,MultiThreadingDemoActivity::class.java)
             startActivity(intent)
         }
     }

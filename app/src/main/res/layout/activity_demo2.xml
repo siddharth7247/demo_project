@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="MultiThreadingDemo.Demo1_Activity">
-
+    tools:context="MultiThreadingDemo.Demo2_Activity">
     <LinearLayout
         android:orientation="vertical"
         android:gravity="center"
@@ -14,47 +13,46 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/txtNum1"
+            android:id="@+id/txtNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:padding="10dp"
             android:inputType="number"
             android:layout_margin="23dp"
-            android:hint="Enter number 1"
+            android:hint="Enter number"
             android:background="@drawable/textboxstyal"
-           />
-
-        <EditText
-            android:id="@+id/txtNum2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:inputType="number"
-            android:padding="10dp"
-            android:layout_margin="23dp"
-            android:hint="Enter number 2"
-            android:background="@drawable/textboxstyal"
-          />
+            />
 
         <Button
-            android:text="Add"
+            android:text="Submit"
             android:textSize="24dp"
             android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btnstyle"
             android:layout_margin="20dp"
-           />
+            />
 
         <TextView
-            android:id="@+id/txtResult"
-            android:text="Result"
+            android:id="@+id/txtResult1"
+            android:text="Result of thread 1"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtResult2"
+            android:text="Result of thread 2"
             android:textSize="25sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
