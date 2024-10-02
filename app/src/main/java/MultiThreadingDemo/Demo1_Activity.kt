@@ -20,14 +20,17 @@ class Demo1_Activity : AppCompatActivity() {
         var btnAdd = findViewById<Button>(R.id.btnSubmit)
         var txtResult = findViewById<TextView>(R.id.txtResult)
 
-        btnAdd.setOnClickListener {
-            var thread1 = Thread {
+
+        var thread1 = Thread {
+            Thread.sleep(1000)
+            btnAdd.setOnClickListener {
                 Log.d("Thread 1", "Thread 1 started")
                 var sum = edtNum1.text.toString().toInt() + edtNum2.text.toString().toInt()
                 txtResult.text = sum.toString()
             }
-            thread1.start()
-        }
 
+        }
+        thread1.start()
     }
+
 }

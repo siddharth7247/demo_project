@@ -17,53 +17,58 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class UserAdapter (var userList: List<UserDataModel>?, var  activity: Activity):RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
-    lateinit var userUpdateListner : userClickListner
-    lateinit var deleteUserClickListener : userClickListner
+class UserAdapter(
+    var userList: List<UserDataModel>?,
+    var activity: Activity,
+) :
+    RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+    lateinit var userUpdateListner: userClickListner
+    lateinit var deleteUserClickListener: userClickListner
     //lateinit var userDeleteListner : userClickListner
 
-    override fun onCreateViewHolder(parent: ViewGroup, iewType: Int):UserViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_student,parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, iewType: Int): UserViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_student, parent, false)
         return UserViewHolder(view)
     }
 
-    class UserViewHolder(userView : View):RecyclerView.ViewHolder(userView){
-        val txtName : TextView = userView.findViewById(R.id.txtName)
-        val txtCompany : TextView = userView.findViewById(R.id.txtCompany)
-        val txtAge : TextView =  userView.findViewById(R.id.txtAge)
-        val btnDelete : Button = userView.findViewById(R.id.btnDelete)
-        val btnUpdate : Button = userView.findViewById(R.id.btnUpdate)
+    class UserViewHolder(userView: View) : RecyclerView.ViewHolder(userView) {
+        val txtName: TextView = userView.findViewById(R.id.txtName)
+        val txtCompany: TextView = userView.findViewById(R.id.txtCompany)
+        val txtAge: TextView = userView.findViewById(R.id.txtAge)
+        val btnDelete: Button = userView.findViewById(R.id.btnDelete)
+        val btnUpdate: Button = userView.findViewById(R.id.btnUpdate)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val currentUser = userList!![position]
-        holder.txtName.text = currentUser?.name
-        holder.txtCompany.text = currentUser?.company
-        holder.txtAge.text = currentUser?.age.toString()
+        holder.txtName.text = currentUser.name
+        holder.txtCompany.text = currentUser.company
+        holder.txtAge.text = currentUser.age.toString()
 
 
-        holder.btnDelete.setOnClickListener{
-            RetrofitObject.Api.deleteUser(currentUser.userId).enqueue(object : Callback<UserDataModel>{
-                override fun onResponse(
-                    call: Call<UserDataModel>,
-                    response: Response<UserDataModel>
-                ) {
-                    Log.d("userid" , currentUser.userId)
-                    Log.d("Deleted",response.body().toString())
-                    Toast.makeText(activity, "deleted", Toast.LENGTH_SHORT).show()
-                }
+        holder.btnDelete.setOnClickListener {
+            RetrofitObject.Api.deleteUser(currentUser.userId)
+                .enqueue(object : Callback<UserDataModel> {
+                    override fun onResponse(
+                        call: Call<UserDataModel>,
+                        response: Response<UserDataModel>
+                    ) {
+                        Log.d("userid", currentUser.userId)
+                        Log.d("Deleted", response.body().toString())
+                        Toast.makeText(activity, "deleted", Toast.LENGTH_SHORT).show()
+                    }
 
-                override fun onFailure(call: Call<UserDataModel>, t: Throwable) {
-                    Toast.makeText(activity, "not deleted", Toast.LENGTH_SHORT).show()
+                    override fun onFailure(call: Call<UserDataModel>, t: Throwable) {
+                        Toast.makeText(activity, "not deleted", Toast.LENGTH_SHORT).show()
 
-                }
-            })
+                    }
+                })
         }
-        holder.btnUpdate.setOnClickListener{
+        holder.btnUpdate.setOnClickListener {
 
             var builder = AlertDialog.Builder(activity)
             //val view = layoutInflater.inflate(R.layout.add_user,null)
-            val view = LayoutInflater.from(activity).inflate(R.layout.add_user,null)
+            val view = LayoutInflater.from(activity).inflate(R.layout.add_user, null)
 
 
             builder.setTitle("Update User")
@@ -71,25 +76,34 @@ class UserAdapter (var userList: List<UserDataModel>?, var  activity: Activity):
             builder.setCancelable(true)
             builder.setView(view)
 
-            var txtName : TextView = view.findViewById(R.id.txtName)
-            var txtCompany : TextView = view.findViewById(R.id.txtCompany)
-            var txtAge : TextView = view.findViewById(R.id.txtAge)
-            var btnSubmit : Button = view.findViewById(R.id.btnAddUser)
+            var txtName: TextView = view.findViewById(R.id.txtName)
+            var txtCompany: TextView = view.findViewById(R.id.txtCompany)
+            var txtAge: TextView = view.findViewById(R.id.txtAge)
+            var btnSubmit: Button = view.findViewById(R.id.btnAddUser)
 
-            txtName.setText(currentUser.name)
-            txtCompany.setText(currentUser.company)
-            txtAge.setText(currentUser.age.toString())
+            txtName.text = currentUser.name
+            txtCompany.text = currentUser.company
+            txtAge.text = currentUser.age.toString()
 
             val alertDialog = builder.create()
             alertDialog.show()
 
-            btnSubmit.setOnClickListener{
-                RetrofitObject.Api.updateUser(currentUser.userId,UserDataModel(currentUser.userId,txtName.text.toString(),txtCompany.text.toString(),txtAge.text.toString().toInt())).enqueue(object : Callback<UserDataModel>{
+            btnSubmit.setOnClickListener {
+                RetrofitObject.Api.updateUser(
+                    currentUser.userId,
+                    UserDataModel(
+                        currentUser.userId,
+                        txtName.text.toString(),
+                        txtCompany.text.toString(),
+                        txtAge.text.toString().toInt()
+                    )
+                ).enqueue(object : Callback<UserDataModel> {
                     override fun onResponse(
                         call: Call<UserDataModel>,
                         response: Response<UserDataModel>
                     ) {
-                        Log.d("Up[date" ,response.body().toString())
+                        this@UserAdapter.notifyDataSetChanged()
+                        Log.d("Up[date", response.body().toString())
                         Toast.makeText(activity, "updated", Toast.LENGTH_SHORT).show()
                     }
 
@@ -106,14 +120,13 @@ class UserAdapter (var userList: List<UserDataModel>?, var  activity: Activity):
 
     override fun getItemCount() = userList!!.size
 
-    fun onUserUpdateClick(listner: userClickListner){
+    fun onUserUpdateClick(listner: userClickListner) {
         this.userUpdateListner = listner
     }
-    fun onDeleteClick(listner: userClickListner){
+
+    fun onDeleteClick(listner: userClickListner) {
         this.deleteUserClickListener = listner
     }
-    fun onUserDeleteClick(listner: userClickListner){
-      //  this.userDeleteListner = listner
-    }
+
 
 }

@@ -3,12 +3,12 @@ package com.example.demo
 import ConstraintLayoutDemo.ConstraintLayoutDemo
 import CordinatorLayoutDemo.CordinatorLayoutDemo
 import DrawableDemo.DrawableDemo
+import FCM.FcmDemoActivity
 import FontsDemo.FontDemo
 import FragmentDemo.FragmentDemo
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
 import MenuDemo.MenuDemo
-import MultiThreadingDemo.Demo1_Activity
 import MultiThreadingDemo.MultiThreadingDemoActivity
 import PermissionDemo.PermissionDemo
 import RecyclerViewDemo.RecyclerViewDemo
@@ -19,10 +19,10 @@ import ViewPagerDemo.ViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import dialogDemo.DialogDemo
 import imageLoadingLibrary.GlideDemoActivity
 import roomDataBaseDemo.RoomDatabaseDemoActivity
@@ -30,27 +30,28 @@ import roomDataBaseDemo.RoomDatabaseDemoActivity
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var btnIntent : Button
-    lateinit var btnConstaint : Button
-    lateinit var btnViews : Button
-    lateinit var btnDrawable : Button
-    lateinit var btnViewPager : Button
-    lateinit var btnListView : Button
-    lateinit var btnRecyclerView : Button
-    lateinit var btnCordinator : Button
-    lateinit var btnSnackbar : Button
-    lateinit var btnFonts : Button
-    lateinit var btnMenu : Button
-    lateinit var btnDialog : Button
-    lateinit var btnReturnResultDemo : Button
-    lateinit var btnFragment : Button
-    lateinit var btnPermission : Button
-    lateinit var btnSharedPrefrences : Button
-    lateinit var btnWebView : Button
-    lateinit var btnImageLoadingLibrary : Button
-    lateinit var btnRoomDatabse : Button
-    lateinit var btnRetrofit : Button
-    lateinit var btnMultiThreading : Button
+    lateinit var btnIntent: Button
+    lateinit var btnConstaint: Button
+    lateinit var btnViews: Button
+    lateinit var btnDrawable: Button
+    lateinit var btnViewPager: Button
+    lateinit var btnListView: Button
+    lateinit var btnRecyclerView: Button
+    lateinit var btnCordinator: Button
+    lateinit var btnSnackbar: Button
+    lateinit var btnFonts: Button
+    lateinit var btnMenu: Button
+    lateinit var btnDialog: Button
+    lateinit var btnReturnResultDemo: Button
+    lateinit var btnFragment: Button
+    lateinit var btnPermission: Button
+    lateinit var btnSharedPrefrences: Button
+    lateinit var btnWebView: Button
+    lateinit var btnImageLoadingLibrary: Button
+    lateinit var btnRoomDatabse: Button
+    lateinit var btnRetrofit: Button
+    lateinit var btnMultiThreading: Button
+    lateinit var btnFcmDemo: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,92 +80,98 @@ class MainActivity : AppCompatActivity() {
         btnRoomDatabse = findViewById(R.id.roomDatabseDemo)
         btnRetrofit = findViewById(R.id.RetrofitJSONDemo)
         btnMultiThreading = findViewById(R.id.multiThreadingDemo)
+        btnFcmDemo = findViewById(R.id.fcmDemo)
 
 
-        btnIntent.setOnClickListener(){
+
+        btnIntent.setOnClickListener {
             intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
-        btnConstaint.setOnClickListener(){
+        btnConstaint.setOnClickListener {
             intent = Intent(this, ConstraintLayoutDemo::class.java)
             startActivity(intent)
         }
 
-        btnViews.setOnClickListener(){
-            intent = Intent(this,ViewsDemoActivity::class.java)
+        btnViews.setOnClickListener {
+            intent = Intent(this, ViewsDemoActivity::class.java)
             startActivity(intent)
         }
-        btnDrawable.setOnClickListener(){
-            intent = Intent(this,DrawableDemo::class.java)
+        btnDrawable.setOnClickListener {
+            intent = Intent(this, DrawableDemo::class.java)
             startActivity(intent)
         }
-        btnViewPager.setOnClickListener(){
-            intent = Intent(this,ViewPagerDemo::class.java)
+        btnViewPager.setOnClickListener {
+            intent = Intent(this, ViewPagerDemo::class.java)
             startActivity(intent)
         }
-        btnListView.setOnClickListener(){
-            intent = Intent(this,ListViewDemo::class.java)
+        btnListView.setOnClickListener {
+            intent = Intent(this, ListViewDemo::class.java)
             startActivity(intent)
         }
-        btnRecyclerView.setOnClickListener(){
-            intent = Intent(applicationContext,RecyclerViewDemo::class.java)
+        btnRecyclerView.setOnClickListener {
+            intent = Intent(applicationContext, RecyclerViewDemo::class.java)
             startActivity(intent)
         }
-        btnCordinator.setOnClickListener(){
-            intent = Intent(this,CordinatorLayoutDemo::class.java)
+        btnCordinator.setOnClickListener {
+            intent = Intent(this, CordinatorLayoutDemo::class.java)
             startActivity(intent)
         }
-        btnSnackbar.setOnClickListener(){
-            intent = Intent(this,SnackBarDemo::class.java)
+        btnSnackbar.setOnClickListener {
+            intent = Intent(this, SnackBarDemo::class.java)
             startActivity(intent)
         }
-        btnFonts.setOnClickListener(){
-            intent = Intent(this,FontDemo::class.java)
+        btnFonts.setOnClickListener {
+            intent = Intent(this, FontDemo::class.java)
             startActivity(intent)
         }
-        btnMenu.setOnClickListener(){
+        btnMenu.setOnClickListener {
             intent = Intent(this, MenuDemo::class.java)
             startActivity(intent)
         }
-        btnDialog.setOnClickListener(){
+        btnDialog.setOnClickListener {
             intent = Intent(this, DialogDemo::class.java)
             startActivity(intent)
         }
-        btnReturnResultDemo.setOnClickListener(){
+        btnReturnResultDemo.setOnClickListener {
             intent = Intent(this, ReturnResultDemo::class.java)
             startActivity(intent)
         }
-        btnFragment.setOnClickListener{
-            intent = Intent(this,FragmentDemo::class.java)
+        btnFragment.setOnClickListener {
+            intent = Intent(this, FragmentDemo::class.java)
             startActivity(intent)
         }
-        btnPermission.setOnClickListener{
-            intent = Intent(this,PermissionDemo::class.java)
+        btnPermission.setOnClickListener {
+            intent = Intent(this, PermissionDemo::class.java)
             startActivity(intent)
         }
-        btnSharedPrefrences.setOnClickListener{
-            intent = Intent(this,IndexActivity::class.java)
+        btnSharedPrefrences.setOnClickListener {
+            intent = Intent(this, IndexActivity::class.java)
             startActivity(intent)
         }
-        btnWebView.setOnClickListener{
-            intent = Intent(this,WebViewDemo.IndexActivity::class.java)
+        btnWebView.setOnClickListener {
+            intent = Intent(this, WebViewDemo.IndexActivity::class.java)
             startActivity(intent)
         }
-        btnImageLoadingLibrary.setOnClickListener{
-           intent = Intent(this,GlideDemoActivity::class.java)
-           startActivity(intent)
-       }
-        btnRoomDatabse.setOnClickListener{
+        btnImageLoadingLibrary.setOnClickListener {
+            intent = Intent(this, GlideDemoActivity::class.java)
+            startActivity(intent)
+        }
+        btnRoomDatabse.setOnClickListener {
             intent = Intent(this, RoomDatabaseDemoActivity::class.java)
             startActivity(intent)
         }
-        btnRetrofit.setOnClickListener{
-            intent = Intent(this,RetrofitAndJSONDemo.UserDetailsActivity::class.java)
+        btnRetrofit.setOnClickListener {
+            intent = Intent(this, RetrofitAndJSONDemo.UserDetailsActivity::class.java)
             startActivity(intent)
         }
-        btnMultiThreading.setOnClickListener{
-            intent = Intent(this,MultiThreadingDemoActivity::class.java)
+        btnMultiThreading.setOnClickListener {
+            intent = Intent(this, MultiThreadingDemoActivity::class.java)
+            startActivity(intent)
+        }
+        btnFcmDemo.setOnClickListener {
+            intent = Intent(this, FcmDemoActivity::class.java)
             startActivity(intent)
         }
     }
