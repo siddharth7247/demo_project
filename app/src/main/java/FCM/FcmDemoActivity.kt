@@ -20,7 +20,6 @@ class FcmDemoActivity : AppCompatActivity() {
         btnGenrate.setOnClickListener {
             FirebaseMessaging.getInstance().token
                 .addOnCompleteListener { task ->
-                    // this fail
                     if (!task.isSuccessful) {
                         Log.d(
                             "token",
@@ -29,9 +28,8 @@ class FcmDemoActivity : AppCompatActivity() {
                         )
                         return@addOnCompleteListener
                     }
-                    //this token
                     val token = task.result
-                    //to showing
+                    Log.d("Token", token.toString())
                     txtToken.text = token
                     Toast.makeText(this, "get a token", Toast.LENGTH_SHORT).show()
                 }

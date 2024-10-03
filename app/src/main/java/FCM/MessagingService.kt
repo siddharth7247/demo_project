@@ -1,11 +1,13 @@
 package FCM
 
 import android.app.Notification
+import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Intent
 import android.media.RingtoneManager
 import android.net.Uri
+import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.example.demo.R
@@ -53,6 +55,15 @@ class MessagingService : FirebaseMessagingService() {
                 .setContentIntent(pendingIntent)
                 .setPriority(Notification.PRIORITY_HIGH)
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                channelId,
+                "notification Channel",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
     }

@@ -10,7 +10,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Paragraph1">n this method, we’ll first download the font’s ttf file from the internet and then use them as an asset or a resource to set the Typeface. You may find the downloadable fonts here. Here Dancing Script font is used. this method, we’ll first download the font’s ttf file from the internet and then use them as an asset or a resource to set the Typeface. You may find the downloadable fonts here. Here Dancing Script font is used. this method, we’ll first download the font’s ttf file from the internet and then use them as an asset or a resource to set the Typeface. You may find the downloadable fonts here. Here Dancing Script font is used. Once you download the fonts of your choice, unzip the folder and copy the font file. By creating a new Android resource directory:</string>
-    <string name="default_notification_channel_id">channelID\n</string>
+    <string name="default_notification_channel_id">myChannel</string>
     <string-array name="Fonts">
         <item>Times new roman</item>
         <item>Protest</item>

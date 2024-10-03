@@ -20,7 +20,7 @@ class UserDetailsActivity : AppCompatActivity() {
     lateinit var btnAddUser: FloatingActionButton
     lateinit var usersRecyclerView: RecyclerView
     lateinit var userAdapter: UserAdapter
-    var userList: List<UserDataModel>? = listOf()
+    var userList: MutableList<UserDataModel>? = mutableListOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +31,11 @@ class UserDetailsActivity : AppCompatActivity() {
         btnAddUser = findViewById(R.id.btnAdd)
         usersRecyclerView = findViewById(R.id.usersRecyclerView)
 
+        userAdapter = UserAdapter(userList, this)
+        usersRecyclerView.adapter = userAdapter
+
         btnGetUsers.setOnClickListener {
             getUsersData()
-            userAdapter = UserAdapter(userList, this)
-            usersRecyclerView.adapter = userAdapter
         }
 
         btnAddUser.setOnClickListener {
@@ -61,14 +62,8 @@ class UserDetailsActivity : AppCompatActivity() {
                 )
                 alertDialog.dismiss()
                 getUsersData()
-                userAdapter.notifyDataSetChanged()
             }
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        getUsersData()
     }
 
     fun addUser(name: String, company: String, age: Int) {
@@ -90,16 +85,17 @@ class UserDetailsActivity : AppCompatActivity() {
     }
 
     fun getUsersData() {
-        RetrofitObject.Api.getUsers().enqueue(object : Callback<List<UserDataModel>> {
+        RetrofitObject.Api.getUsers().enqueue(object : Callback<MutableList<UserDataModel>> {
             override fun onResponse(
-                call: Call<List<UserDataModel>>,
-                response: Response<List<UserDataModel>>
+                call: Call<MutableList<UserDataModel>>,
+                response: Response<MutableList<UserDataModel>>
             ) {
                 userList = response.body()
+                userList?.let { userAdapter.updateList(it) }
                 Log.d("Get user data", response.body().toString())
             }
 
-            override fun onFailure(call: Call<List<UserDataModel>>, t: Throwable) {
+            override fun onFailure(call: Call<MutableList<UserDataModel>>, t: Throwable) {
                 Toast.makeText(this@UserDetailsActivity, "not scuessfull", Toast.LENGTH_SHORT)
                     .show()
             }
