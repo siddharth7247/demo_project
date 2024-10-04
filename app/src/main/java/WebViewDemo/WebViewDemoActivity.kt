@@ -1,5 +1,6 @@
 package WebViewDemo
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.webkit.WebView
@@ -10,6 +11,8 @@ import com.example.demo.R
 
 class WebViewDemoActivity : AppCompatActivity() {
     lateinit var webView: WebView
+
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view_demo)

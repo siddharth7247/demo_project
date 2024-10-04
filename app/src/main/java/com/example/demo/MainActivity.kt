@@ -17,6 +17,7 @@ import SharedPrefrencesDemo.IndexActivity
 import SnackBarDemo.SnackBarDemo
 import ViewPagerDemo.ViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
+import WorkManagerDemo.WorkManagerDemo1
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnRetrofit: Button
     lateinit var btnMultiThreading: Button
     lateinit var btnFcmDemo: Button
+    lateinit var btnWorkManager: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         btnRetrofit = findViewById(R.id.RetrofitJSONDemo)
         btnMultiThreading = findViewById(R.id.multiThreadingDemo)
         btnFcmDemo = findViewById(R.id.fcmDemo)
+        btnWorkManager = findViewById(R.id.workManagerDemo)
 
 
 
@@ -172,6 +175,10 @@ class MainActivity : AppCompatActivity() {
         }
         btnFcmDemo.setOnClickListener {
             intent = Intent(this, FcmDemoActivity::class.java)
+            startActivity(intent)
+        }
+        btnWorkManager.setOnClickListener {
+            intent = Intent(this, WorkManagerDemo1::class.java)
             startActivity(intent)
         }
     }

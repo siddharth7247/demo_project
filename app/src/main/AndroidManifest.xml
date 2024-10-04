@@ -30,6 +30,9 @@
         android:theme="@style/Theme.Demo"
         tools:targetApi="33">
         <activity
+            android:name="WorkManagerDemo.WorkManagerDemo1"
+            android:exported="false" />
+        <activity
             android:name="FCM.FcmDemoActivity"
             android:exported="false" />
         <activity

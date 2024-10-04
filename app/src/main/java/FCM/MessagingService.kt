@@ -6,7 +6,6 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Intent
 import android.media.RingtoneManager
-import android.net.Uri
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
@@ -23,8 +22,7 @@ class MessagingService : FirebaseMessagingService() {
         }
         if (message.notification != null) {
             sendNotification(
-                message.notification!!.body, message.notification!!.title, message.notification!!
-                    .imageUrl
+                message.notification!!.body, message.notification!!.title, message.data
             )
         }
     }
@@ -33,9 +31,11 @@ class MessagingService : FirebaseMessagingService() {
         Log.d(TAG, "Refreshed token: $token")
     }
 
-    private fun sendNotification(messageBody: String?, title: String?, imgUrl: Uri?) {
+    private fun sendNotification(messageBody: String?, title: String?, data: Map<String, String>) {
+        val name = data.get("name")
         val intent = Intent(this, FcmDemoActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent.putExtra("name", name)
         val pendingIntent = PendingIntent.getActivity(
             this,
             0 /* Request code */,

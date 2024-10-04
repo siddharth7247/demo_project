@@ -17,6 +17,12 @@ class FcmDemoActivity : AppCompatActivity() {
         var txtToken = findViewById<TextView>(R.id.txtToken)
         var btnGenrate = findViewById<Button>(R.id.btnGenrate)
 
+        val bundel: Bundle? = intent.extras
+
+        if (bundel != null) {
+            val name = bundel.get("name")
+            txtToken.text = name.toString()
+        }
         btnGenrate.setOnClickListener {
             FirebaseMessaging.getInstance().token
                 .addOnCompleteListener { task ->

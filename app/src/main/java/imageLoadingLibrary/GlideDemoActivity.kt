@@ -1,4 +1,5 @@
 package imageLoadingLibrary
+
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
@@ -12,14 +13,14 @@ import coil.decode.ImageDecoderDecoder
 import coil.load
 import com.bumptech.glide.Glide
 import com.example.demo.R
-import com.example.demo.R.id.btnGlide
 
 class GlideDemoActivity : AppCompatActivity() {
-    lateinit var imageView : ImageView
-    lateinit var imageView2 : ImageView
-    lateinit var btnGlide : Button
-    lateinit var btnCoil : Button
-    lateinit var btnCoilGif : Button
+    lateinit var imageView: ImageView
+    lateinit var imageView2: ImageView
+    lateinit var btnGlide: Button
+    lateinit var btnCoil: Button
+    lateinit var btnCoilGif: Button
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,19 +41,22 @@ class GlideDemoActivity : AppCompatActivity() {
             Glide.with(this).load(imgUrl).into(imageView2)
         }
         btnCoil.setOnClickListener {
-            imageView2.load(imgurl2)
-        }
-        btnCoilGif.setOnClickListener{
-            val imageLoader =
-                ImageLoader.Builder(applicationContext).components(fun ComponentRegistry.Builder.() {
-                    if(Build.VERSION.SDK_INT >= 28){
-                        add(ImageDecoderDecoder.Factory())
-                    }else {
-                        add(GifDecoder.Factory())
-                    }
-                }).build()
+            imageView2.load(imgurl2) {
 
-            imageView2.load(gifUrl,imageLoader)
+            }
+        }
+        btnCoilGif.setOnClickListener {
+            val imageLoader =
+                ImageLoader.Builder(applicationContext)
+                    .components(fun ComponentRegistry.Builder.() {
+                        if (Build.VERSION.SDK_INT >= 28) {
+                            add(ImageDecoderDecoder.Factory())
+                        } else {
+                            add(GifDecoder.Factory())
+                        }
+                    }).build()
+
+            imageView2.load(gifUrl, imageLoader)
         }
     }
 }
