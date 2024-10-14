@@ -2,12 +2,15 @@ package com.example.demo
 
 import ConstraintLayoutDemo.ConstraintLayoutDemo
 import CordinatorLayoutDemo.CordinatorLayoutDemo
+import DarkThemeDemo.DarkTheme
+import DataBindingDemo.DataBindingDemo
 import DrawableDemo.DrawableDemo
 import FCM.FcmDemoActivity
 import FontsDemo.FontDemo
 import FragmentDemo.FragmentDemo
 import IntentDemo.LoginActivity
 import ListViewDemo.ListViewDemo
+import MapDemo.MapDemo
 import MenuDemo.MenuDemo
 import MultiThreadingDemo.MultiThreadingDemoActivity
 import PermissionDemo.PermissionDemo
@@ -17,7 +20,7 @@ import SharedPrefrencesDemo.IndexActivity
 import SnackBarDemo.SnackBarDemo
 import ViewPagerDemo.ViewPagerDemo
 import ViewsDemo.ViewsDemoActivity
-import WorkManagerDemo.WorkManagerDemo1
+import WorkManagerDemo.WorkManagerIndex
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -54,6 +57,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnMultiThreading: Button
     lateinit var btnFcmDemo: Button
     lateinit var btnWorkManager: Button
+    lateinit var btnDarkTheme: Button
+    lateinit var btnMap: Button
+    lateinit var btnDataBinding: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,10 +67,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         enableEdgeToEdge()
 
-        btnIntent = findViewById<Button>(R.id.intentDemo)
-        btnConstaint = findViewById<Button>(R.id.constraintLayoutDemo)
-        btnViews = findViewById<Button>(R.id.viewsDemo)
-        btnDrawable = findViewById<Button>(R.id.drawableDemo)
+        btnIntent = findViewById(R.id.intentDemo)
+        btnConstaint = findViewById(R.id.constraintLayoutDemo)
+        btnViews = findViewById(R.id.viewsDemo)
+        btnDrawable = findViewById(R.id.drawableDemo)
         btnViewPager = findViewById(R.id.viewPagerDemo)
         btnListView = findViewById(R.id.listViewDemo)
         btnRecyclerView = findViewById(R.id.recyclerViewDemo)
@@ -84,7 +90,9 @@ class MainActivity : AppCompatActivity() {
         btnMultiThreading = findViewById(R.id.multiThreadingDemo)
         btnFcmDemo = findViewById(R.id.fcmDemo)
         btnWorkManager = findViewById(R.id.workManagerDemo)
-
+        btnDarkTheme = findViewById(R.id.darkThemeDemo)
+        btnMap = findViewById(R.id.mapDemo)
+        btnDataBinding = findViewById(R.id.dataBindingDemo)
 
 
         btnIntent.setOnClickListener {
@@ -178,7 +186,19 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnWorkManager.setOnClickListener {
-            intent = Intent(this, WorkManagerDemo1::class.java)
+            intent = Intent(this, WorkManagerIndex::class.java)
+            startActivity(intent)
+        }
+        btnDarkTheme.setOnClickListener {
+            intent = Intent(this, DarkTheme::class.java)
+            startActivity(intent)
+        }
+        btnMap.setOnClickListener {
+            intent = Intent(this, MapDemo::class.java)
+            startActivity(intent)
+        }
+        btnDataBinding.setOnClickListener {
+            intent = Intent(this, DataBindingDemo::class.java)
             startActivity(intent)
         }
     }

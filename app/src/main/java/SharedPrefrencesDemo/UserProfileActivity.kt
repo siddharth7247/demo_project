@@ -1,6 +1,5 @@
 package SharedPrefrencesDemo
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -10,14 +9,13 @@ import com.example.demo.R
 
 class UserProfileActivity : AppCompatActivity() {
 
-    lateinit var txtFirstName : TextView
-    lateinit var txtLastName : TextView
-    lateinit var txtEmail : TextView
-    lateinit var txtPhone : TextView
-    lateinit var txtAddress : TextView
-    lateinit var btnLogout : Button
+    lateinit var txtFirstName: TextView
+    lateinit var txtLastName: TextView
+    lateinit var txtEmail: TextView
+    lateinit var txtPhone: TextView
+    lateinit var txtAddress: TextView
+    lateinit var btnLogout: Button
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
@@ -31,19 +29,19 @@ class UserProfileActivity : AppCompatActivity() {
 
         val sh = getSharedPreferences("userData", MODE_PRIVATE)
 
-        val firstName = sh.getString("firstName","")
-        val lastName = sh.getString("lastName","")
-        val email = sh.getString("email","")
-        val phone = sh.getString("phone","")
-        val address = sh.getString("address" ,"")
+        val firstName = sh.getString("firstName", "")
+        val lastName = sh.getString("lastName", "")
+        val email = sh.getString("email", "")
+        val phone = sh.getString("phone", "")
+        val address = sh.getString("address", "")
 
-        txtFirstName.setText(firstName)
-        txtLastName.setText(lastName)
-        txtEmail.setText(email)
-        txtPhone.setText(phone)
-        txtAddress.setText(address)
+        txtFirstName.text = firstName
+        txtLastName.text = lastName
+        txtEmail.text = email
+        txtPhone.text = phone
+        txtAddress.text = address
 
-        btnLogout.setOnClickListener{
+        btnLogout.setOnClickListener {
             val myshp = sh.edit()
             myshp.remove("firstName")
             myshp.remove("lastName")
@@ -52,7 +50,7 @@ class UserProfileActivity : AppCompatActivity() {
             myshp.remove("address")
             myshp.apply()
 
-            intent = Intent(applicationContext,UserDetailsActivity::class.java)
+            intent = Intent(applicationContext, UserDetailsActivity::class.java)
             startActivity(intent)
         }
 

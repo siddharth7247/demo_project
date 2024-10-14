@@ -8,7 +8,7 @@ import androidx.work.WorkerParameters
 class OneTimeWorker(context: Context, workerParameters: WorkerParameters) :
     Worker(context, workerParameters) {
     override fun doWork(): Result {
-        Thread.sleep(50000)
+        Thread.sleep(5000)
         Log.d("worker", "Task is completed in work manager!!")
         return Result.success()
     }

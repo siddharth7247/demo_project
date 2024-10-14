@@ -42,7 +42,6 @@ class GlideDemoActivity : AppCompatActivity() {
         }
         btnCoil.setOnClickListener {
             imageView2.load(imgurl2) {
-
             }
         }
         btnCoilGif.setOnClickListener {

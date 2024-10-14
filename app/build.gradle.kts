@@ -5,9 +5,11 @@ plugins {
     id("com.google.gms.google-services")
 }
 
+val mapsApiKey: String? = project.findProperty("MAPS_API_KEY") as String?
 android {
     namespace = "com.example.demo"
     compileSdk = 34
+
 
     defaultConfig {
         applicationId = "com.example.demo"
@@ -15,8 +17,9 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders["mapsApiKey"] = mapsApiKey ?: ""
+
     }
 
     buildTypes {
@@ -37,11 +40,15 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
 dependencies {
     implementation("com.google.firebase:firebase-messaging-ktx:24.0.2")
+    implementation("androidx.webkit:webkit:1.12.1")
+    implementation("com.google.android.gms:play-services-maps:19.0.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
     val room_version = "2.6.1"
 
     implementation("androidx.core:core-ktx:1.13.1")
@@ -82,4 +89,5 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    implementation(kotlin("script-runtime"))
 }

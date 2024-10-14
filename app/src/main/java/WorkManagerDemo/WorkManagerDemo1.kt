@@ -7,7 +7,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.work.Constraints
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.example.demo.R
@@ -21,11 +20,7 @@ class WorkManagerDemo1 : AppCompatActivity() {
         val btnStart = findViewById<Button>(R.id.btnStart)
         val txtStatus = findViewById<TextView>(R.id.txtStatus)
 
-        val chargerConstarint: Constraints = Constraints.Builder().setRequiresCharging(true).build()
-        val oneTimeRequest =
-            OneTimeWorkRequest.Builder(OneTimeWorker::class.java).setConstraints(chargerConstarint)
-                .build()
-
+        val oneTimeRequest = OneTimeWorkRequest.Builder(OneTimeWorker::class.java).build()
 
         btnStart.setOnClickListener {
             WorkManager.getInstance(this).enqueue(oneTimeRequest)

@@ -30,6 +30,22 @@
         android:theme="@style/Theme.Demo"
         tools:targetApi="33">
         <activity
+            android:name="DataBindingDemo.DataBindingDemo"
+            android:exported="false" />
+        <activity
+            android:name="MapDemo.MapDemo"
+            android:exported="false" />
+        <activity
+            android:name="DarkThemeDemo.DarkTheme"
+            android:exported="false"
+            android:theme="@style/Theme.Demo" />
+        <activity
+            android:name="WorkManagerDemo.WorkManagerIndex"
+            android:exported="false" />
+        <activity
+            android:name="WorkManagerDemo.WorkManagerDemo2"
+            android:exported="false" />
+        <activity
             android:name="WorkManagerDemo.WorkManagerDemo1"
             android:exported="false" />
         <activity
@@ -219,6 +235,10 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${mapsApiKey}" />
     </application>
 
 </manifest>
